@@ -1,0 +1,15 @@
+body {
+  background: url('https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/15896232_1488544601188166_2165981924097240304_o.jpg?_nc_cat=101&_nc_ht=scontent-arn2-1.xx&oh=2e556ef685f774cbe875ce2b1d7f31a1&oe=5D117AA4');
+  background-size: cover;
+  box-sizing: border-box;
+  background-position: 50% 0%;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
