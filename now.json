@@ -1,6 +1,0 @@
-{
-  "version": 2,
-  "regions": ["bru1"],
-  "name": "legbah",
-  "builds": [{ "src": "package.json", "use": "@now/static-build" }]
-}
