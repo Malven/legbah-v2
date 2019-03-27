@@ -12,7 +12,7 @@ function App() {
         height: '100%'
       }}
     >
-      <h1 style={{ color: 'white', alignSelf: 'center' }}>COMING SOON</h1>
+      <h1 style={{ color: 'white', alignSelf: 'center' }}>=COMING SOON=</h1>
     </div>
   );
 }
