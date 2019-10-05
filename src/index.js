@@ -4,6 +4,22 @@ import ReactDOM from 'react-dom';
 import './styles.css';
 
 function App() {
+  const [state, setState] = React.useState(false);
+
+  React.useEffect(() => {
+    let ignore = false;
+
+    const setup = async () => {
+      if (ignore && !state) {
+        setState(true);
+      }
+    };
+
+    setup();
+
+    return () => (ignore = true);
+  }, [state]);
+
   return (
     <div
       style={{
