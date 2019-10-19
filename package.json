@@ -5,13 +5,24 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next": "9.1.1",
     "react": "16.10.2",
-    "react-dom": "16.10.2",
-    "react-scripts": "3.2.0"
+    "react-dom": "16.10.2"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^6.3.0",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-plugin-flowtype": "^3.13.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
     "prettier": "^1.18.2"
   },
   "eslintConfig": {
@@ -35,11 +46,10 @@
     }
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "now-build": "react-scripts build && mv build dist"
+    "dev": "next",
+    "build": "next build",
+    "export": "next export",
+    "deploy": "npm run build && npm run export"
   },
   "browserslist": [
     ">0.2%",
