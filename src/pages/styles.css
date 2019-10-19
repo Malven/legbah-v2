@@ -93,7 +93,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-size: 2rem;
+  font-size: 3rem;
   color: #fefefe;
   text-transform: capitalize;
   font-family: 'UnifrakturCook', cursive;
@@ -114,7 +114,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .main-container__item {
