@@ -1,6 +1,7 @@
 import App from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import './styles.css';
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -23,6 +24,10 @@ export default class MyApp extends App {
           <link rel="shortcut icon" href="/static/legbah-favicon.ico" />
           <link
             href="https://fonts.googleapis.com/css?family=UnifrakturCook:700&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans&display=swap"
             rel="stylesheet"
           />
         </Head>

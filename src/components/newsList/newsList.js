@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Main = () => (
+export const NewsList = () => (
   <div className="main-container">
     <div className="main-container__item">
       <h2>17.9.2019</h2>
