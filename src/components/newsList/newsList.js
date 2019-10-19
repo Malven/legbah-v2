@@ -5,6 +5,7 @@ export const NewsList = () => (
     <div className="main-container__item">
       <h2>17.9.2019</h2>
     </div>
+    <hr />
     <div className="main-container__item">
       <img
         className="main-container__item-img"

@@ -9,6 +9,11 @@ body {
   width: 100%;
 }
 
+hr {
+  border: 1px solid gray;
+  width: 100%;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -101,7 +106,7 @@ a:hover {
 
 .nav-links {
   display: flex;
-  margin: 0 25px;
+  margin: 0 35px;
 }
 
 .nav-links:hover {
@@ -119,7 +124,7 @@ a:hover {
 
 .main-container__item {
   color: #fefefe;
-  font-size: 2rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,6 +135,6 @@ a:hover {
 }
 
 .main-container__item-img {
-  height: 550px;
-  width: 550px;
+  height: 450px;
+  width: 450px;
 }

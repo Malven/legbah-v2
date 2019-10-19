@@ -10,17 +10,20 @@ export const Layout = ({ children }) => (
     <div className="legbah-grid-container">
       <div className="legbah-header">
         <img
-          style={{ height: '300px' }}
+          style={{ height: '250px' }}
           src="/static/sun.png"
           alt="sun of Legbah"
         />
         <img
-          style={{ height: '300px' }}
+          style={{
+            height: '250px',
+            width: '500px'
+          }}
           src="/static/legbah-inverted.png"
           alt="logotype of Legbah"
         />
         <img
-          style={{ height: '300px' }}
+          style={{ height: '250px' }}
           src="/static/sun.png"
           alt="sun of Legbah"
         />
