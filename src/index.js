@@ -41,21 +41,14 @@ const Main = () => (
 
 function App() {
   return (
-    <div className="container">
-      <div className="header"> </div>
-      <div className="social">
-        <div className="socials">
-          <SpotifyIcon size={48} className="social-icon" />
-          <YouTubeIcon size={48} className="social-icon" />
-          <FacebookIcon size={48} className="social-icon" />
-        </div>
-      </div>
-      <div className="navs">
-        <Navbar />
-      </div>
-      <div className="main">
-        <Main />
-      </div>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        height: '100%'
+      }}
+    >
+      <h1 style={{ color: 'white', alignSelf: 'center' }}>COMING SOON</h1>
     </div>
   );
 }
