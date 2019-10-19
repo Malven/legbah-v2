@@ -61,7 +61,7 @@ a:hover {
   grid-template-areas: "legbah-header legbah-header legbah-header legbah-header legbah-social" "legbah-navbar legbah-navbar legbah-navbar legbah-navbar legbah-tour-dates" ". legbah-main legbah-main . legbah-tour-dates" ". legbah-main legbah-main . legbah-tour-dates" ". legbah-main legbah-main . legbah-tour-dates";
 }
 
-.legbah-header { grid-area: legbah-header; display: flex; justify-content: center; }
+.legbah-header { grid-area: legbah-header; display: flex; justify-content: space-between; }
 
 .legbah-navbar { grid-area: legbah-navbar; }
 
