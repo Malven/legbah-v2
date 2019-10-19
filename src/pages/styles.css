@@ -65,17 +65,18 @@ a:hover {
 
 .legbah-navbar { grid-area: legbah-navbar; }
 
-.legbah-main { grid-area: legbah-main; background-color: cadetblue;}
+.legbah-main { grid-area: legbah-main; }
 
 .legbah-social { grid-area: legbah-social; }
 
-.legbah-tour-dates { grid-area: legbah-tour-dates; background-color: gray;}
+.legbah-tour-dates { grid-area: legbah-tour-dates; }
 
 .socials {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: end;
   height: 100%;
+  margin-top: 10px;
   flex-direction: row-reverse;
 }
 
@@ -89,7 +90,7 @@ a:hover {
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 100%;
   font-size: 2rem;
@@ -100,6 +101,7 @@ a:hover {
 
 .nav-links {
   display: flex;
+  margin: 0 25px;
 }
 
 .nav-links:hover {
