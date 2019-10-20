@@ -68,6 +68,10 @@ a:hover {
 
 .legbah-header { grid-area: legbah-header; display: flex; justify-content: space-between; }
 
+.legbah-header.header-logo__center {
+  justify-content: center;
+}
+
 .legbah-navbar { grid-area: legbah-navbar; }
 
 .legbah-main { grid-area: legbah-main; }
@@ -107,6 +111,11 @@ a:hover {
 .nav-links {
   display: flex;
   margin: 0 35px;
+}
+
+.nav-links.active a{
+  color: #715526;
+  text-decoration: underline;
 }
 
 .nav-links:hover {
