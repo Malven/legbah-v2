@@ -2,6 +2,7 @@ body {
   background-color: black;
   margin: 0;
   padding: 0;
+  font-family: 'Crimson Text', 'Open Sans', serif;
 }
 
 #root {
@@ -31,6 +32,7 @@ a:hover {
 .container {
   width: 80%;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .enter-container {
@@ -49,7 +51,6 @@ a:hover {
 
 .enter-container h1 a {
   font-weight: 100;
-  font-family: 'Crimson Text', 'Open Sans', serif;
   text-transform: uppercase;
   letter-spacing: 15px;
 }
@@ -62,7 +63,7 @@ a:hover {
 .legbah-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 74px 1fr 1fr 1fr;
+  grid-template-rows: 1fr minmax(74px, auto) 1fr 1fr 1fr;
   grid-template-areas: "legbah-header legbah-header legbah-header legbah-header legbah-social" "legbah-navbar legbah-navbar legbah-navbar legbah-navbar legbah-tour-dates" ". legbah-main legbah-main . legbah-tour-dates" ". legbah-main legbah-main . legbah-tour-dates" ". legbah-main legbah-main . legbah-tour-dates";
 }
 
@@ -106,6 +107,42 @@ a:hover {
   color: #fefefe;
   text-transform: capitalize;
   font-family: 'UnifrakturCook', cursive;
+}
+
+@media (max-width: 1450px) {
+
+.container {
+  width: 100%;
+  margin: 0 0;
+}
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 3rem;
+    color: #fefefe;
+    text-transform: capitalize;
+    font-family: 'UnifrakturCook', cursive;
+    flex-wrap: wrap;
+  }
+
+  .legbah-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px minmax(74px,auto) 1fr 1fr 60px;
+    grid-template-areas: "legbah-header" "legbah-navbar" "legbah-main" "legbah-tour-dates" "legbah-social";
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 100%;
+    margin-top: 10px;
+    flex-direction: row-reverse;
+  }
 }
 
 .nav-links {
