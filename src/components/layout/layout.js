@@ -16,20 +16,13 @@ export const Layout = ({ children }) => {
       <div className="legbah-social">
         <Socials />
       </div>
-      <div className="legbah-main"> {children}</div>
+      <div className="legbah-main">{children}</div>
       <div className="legbah-navbar">
         <Navbar />
       </div>
       <div className="legbah-tour-dates">
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            textAlign: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <h2 style={{ width: '65%' }}>
+        <div className="legbah-tour-dates_container">
+          <h2>
             Tour Header
             <hr />
           </h2>

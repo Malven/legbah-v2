@@ -75,8 +75,21 @@ a:hover {
 .legbah-navbar { grid-area: 2 / 2 / 3 / 6; }
 .legbah-tour-dates { grid-area: 2 / 6 / 8 / 8; }
 
+.legbah-tour-dates_container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
 .legbah-tour-dates h2 {
   font-family: 'UnifrakturCook', cursive;
+  width: 65%;
+}
+
+.legbah-tour-dates_main {
+  width: 65%;
+  height: 100%;
 }
 
 .legbah-header.header-logo__center {
