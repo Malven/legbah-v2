@@ -63,24 +63,25 @@ a:hover {
 
 .legbah-grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr minmax(74px, auto) 1fr 1fr 1fr;
-  grid-template-areas: "legbah-header legbah-header legbah-header legbah-header legbah-social" "legbah-navbar legbah-navbar legbah-navbar legbah-navbar legbah-tour-dates" ". legbah-main legbah-main . legbah-tour-dates" ". legbah-main legbah-main . legbah-tour-dates" ". legbah-main legbah-main . legbah-tour-dates";
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 250px minmax(74px, auto) repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
-.legbah-header { grid-area: legbah-header; display: flex; justify-content: space-between; }
+.legbah-header { grid-area: 1 / 2 / 2 / 6; display: flex; justify-content: space-between; }
+.legbah-social { grid-area: 1 / 6 / 2 / 8; }
+.legbah-main { grid-area: 3 / 2 / 8 / 6; }
+.legbah-navbar { grid-area: 2 / 2 / 3 / 6; }
+.legbah-tour-dates { grid-area: 2 / 6 / 8 / 8; }
+
+.legbah-tour-dates h2 {
+  font-family: 'UnifrakturCook', cursive;
+}
 
 .legbah-header.header-logo__center {
   justify-content: center;
 }
-
-.legbah-navbar { grid-area: legbah-navbar; }
-
-.legbah-main { grid-area: legbah-main; }
-
-.legbah-social { grid-area: legbah-social; }
-
-.legbah-tour-dates { grid-area: legbah-tour-dates; }
 
 .socials {
   display: flex;
@@ -101,6 +102,7 @@ a:hover {
 
 .navbar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 100%;

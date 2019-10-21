@@ -9,21 +9,30 @@ export const Layout = ({ children }) => {
   const isWide = useMedia({ minWidth: 1450 });
 
   return (
-    <div className="container">
-      <div className="legbah-grid-container">
+    <div className="legbah-grid-container">
+      <div className={`legbah-header ${!isWide ? 'header-logo__center' : ''}`}>
+        <Header />
+      </div>
+      <div className="legbah-social">
+        <Socials />
+      </div>
+      <div className="legbah-main"> {children}</div>
+      <div className="legbah-navbar">
+        <Navbar />
+      </div>
+      <div className="legbah-tour-dates">
         <div
-          className={`legbah-header ${!isWide ? 'header-logo__center' : ''}`}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            textAlign: 'center',
+            alignItems: 'center'
+          }}
         >
-          <Header />
-        </div>
-        <div className="legbah-navbar">
-          <Navbar />
-        </div>
-        <div className="legbah-main">{children}</div>
-        <div className="legbah-social">
-          <Socials />
-        </div>
-        <div className="legbah-tour-dates">
+          <h2 style={{ width: '65%' }}>
+            Tour Header
+            <hr />
+          </h2>
           <TourDates />
         </div>
       </div>
