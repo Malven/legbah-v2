@@ -11,7 +11,7 @@ export const Navbar = () => {
         className={`nav-links ${router.pathname === '/news' ? 'active' : ''}`}
       >
         <Link href="/news">
-          <a href="/news">News</a>
+          <button>News</button>
         </Link>
       </div>
       <div
@@ -20,7 +20,7 @@ export const Navbar = () => {
         }`}
       >
         <Link href="/releases">
-          <a href="/releases">Releases</a>
+          <button>Releases</button>
         </Link>
       </div>
       <div
@@ -38,9 +38,13 @@ export const Navbar = () => {
         Webstore
       </div>
       <div
-        className={`nav-links ${router.pathname === 'contact' ? 'active' : ''}`}
+        className={`nav-links ${
+          router.pathname === '/contact' ? 'active' : ''
+        }`}
       >
-        Contact
+        <Link href="/contact">
+          <button>Contact</button>
+        </Link>
       </div>
     </div>
   );

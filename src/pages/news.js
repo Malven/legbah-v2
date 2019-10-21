@@ -2,10 +2,6 @@ import React from 'react';
 import { NewsList } from '../components/newsList/newsList';
 import { Layout } from '../components/layout/layout';
 
-const News = () => (
-  <Layout>
-    <NewsList />
-  </Layout>
-);
+const News = () => <NewsList />;
 
 export default News;

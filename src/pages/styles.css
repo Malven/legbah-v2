@@ -11,6 +11,10 @@ body {
   width: 100%;
 }
 
+h1 {
+  font-family: 'UnifrakturCook', cursive;
+}
+
 hr {
   border: 1px solid gray;
   width: 100%;
@@ -166,9 +170,33 @@ a:hover {
   margin: 0 35px;
 }
 
-.nav-links.active a{
+.nav-links button {
+  padding: 0;
+  border: 0;
+  background-color: black;
+  color: white;
+  font-family: 'UnifrakturCook';
+  font-size: 3rem;
+  text-decoration: none;
+  
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 5px solid #000000;
+}
+
+.nav-links button:hover {
   color: #715526;
-  text-decoration: underline;
+  cursor: pointer;
+}
+
+.nav-links.active button {
+
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 5px solid #715526;
+  color: #715526;
 }
 
 .nav-links:hover {
@@ -199,4 +227,42 @@ a:hover {
 .main-container__item-img {
   height: 450px;
   width: 450px;
+}
+
+.contact-presskits {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contact-presskits__item img{
+  width: 250px;
+}
+
+.contact-form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-input {
+  padding: 10px;
+  border-radius: 2px;
+  margin: 10px 0;
+  border: 0;
+  font-size: 1.3rem;
+}
+
+.contact-form-input:focus {
+  box-shadow: 0px 0px 2px 5px #715526;
+}
+
+textarea.contact-form-input {
+  max-width: calc(100% - 21px);
+  height: 98px;
+  padding: 10px;
+  border-radius: 2px;
+  margin: 10px 0;
+}
+
+.contact-form-input-error {
+  color: red;
 }
