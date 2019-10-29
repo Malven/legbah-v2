@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   background-color: black;
   margin: 0;
@@ -11,9 +15,12 @@ body {
   width: 100%;
 }
 
-hr {
-  border: 1px solid gray;
-  width: 100%;
+h1 {
+  @apply font-display text-white text-5xl;
+}
+
+h2 {
+  @apply font-display text-white text-3xl;
 }
 
 a {
@@ -28,12 +35,6 @@ a:visited {
 a:hover {
   color: #715526;
   cursor: pointer;
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto;
-  overflow: hidden;
 }
 
 .enter-container {
@@ -54,10 +55,11 @@ a:hover {
   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 15px;
+  @apply font-body;
 }
 
 .enter-container h2 {
-  font-family: 'UnifrakturCook', cursive;
+  @apply font-display;
   text-transform: lowercase;
 }
 
@@ -75,12 +77,21 @@ a:hover {
 .legbah-navbar { grid-area: 2 / 2 / 3 / 6; }
 .legbah-tour-dates { grid-area: 2 / 6 / 8 / 8; }
 
-.legbah-tour-dates h2 {
-  font-family: 'UnifrakturCook', cursive;
+.legbah-tour-dates_container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
-.legbah-header.header-logo__center {
-  justify-content: center;
+.legbah-tour-dates h2 {
+  font-family: 'UnifrakturCook', cursive;
+  width: 65%;
+}
+
+.legbah-tour-dates_main {
+  width: 65%;
+  height: 100%;
 }
 
 .socials {
@@ -106,7 +117,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-size: 3rem;
+  font-size: 1.5rem;
   color: #fefefe;
   text-transform: capitalize;
   font-family: 'UnifrakturCook', cursive;
@@ -114,17 +125,12 @@ a:hover {
 
 @media (max-width: 1450px) {
 
-.container {
-  width: 100%;
-  margin: 0 0;
-}
-
   .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    font-size: 3rem;
+    font-size: 1.5rem;
     color: #fefefe;
     text-transform: capitalize;
     font-family: 'UnifrakturCook', cursive;
@@ -150,12 +156,36 @@ a:hover {
 
 .nav-links {
   display: flex;
-  margin: 0 35px;
+  margin: 0 15px;
 }
 
-.nav-links.active a{
+.nav-links button {
+  padding: 0;
+  border: 0;
+  background-color: black;
+  color: white;
+  font-family: 'UnifrakturCook';
+  font-size: 1.5rem;
+  text-decoration: none;
+  
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 5px solid #000000;
+}
+
+.nav-links button:hover {
   color: #715526;
-  text-decoration: underline;
+  cursor: pointer;
+}
+
+.nav-links.active button {
+
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 5px solid #715526;
+  color: #715526;
 }
 
 .nav-links:hover {
@@ -186,4 +216,55 @@ a:hover {
 .main-container__item-img {
   height: 450px;
   width: 450px;
+}
+
+.contact-container h2 {
+  text-align: center;
+}
+
+.contact-container hr {
+  margin-bottom: 30px;
+}
+
+.contact-presskits {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-presskits__item img{
+  width: 350px;
+  border: 1px solid #eee
+}
+.contact-presskits__item img:hover{
+  box-shadow: 0px 0px 2px 5px #715526;
+}
+
+.contact-form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-size: 1.5rem;
+}
+
+.contact-form-input {
+  @apply my-2 border-0 text-xl p-2 rounded;
+}
+
+.contact-form-input:focus, .contact-form-input:hover {
+  box-shadow: 0px 0px 2px 5px #715526;
+}
+
+.contact-form-input.contact-form-btn {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  font-family: 'Crimson Text';
+  border-radius: 3px;
+}
+
+.contact-form-input-error {
+  color: red;
 }

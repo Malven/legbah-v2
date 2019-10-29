@@ -1,10 +1,5 @@
 import React from 'react';
-import { Layout } from '../components/layout/layout';
 
-const Releases = () => (
-  <Layout>
-    <h1>Releases</h1>
-  </Layout>
-);
+const Releases = () => <h2>Releases</h2>;
 
 export default Releases;
