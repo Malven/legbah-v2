@@ -1,10 +1,12 @@
 import App from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import { withRouter } from 'next/router';
 import './styles.css';
 import { Layout } from '../components/layout/layout';
+import { EnterSite } from '../components/enterSite/enterSite';
 
-export default class MyApp extends App {
+class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
@@ -16,7 +18,7 @@ export default class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
 
     return (
       <React.Fragment>
@@ -32,10 +34,16 @@ export default class MyApp extends App {
             rel="stylesheet"
           />
         </Head>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {router.pathname !== '/' ? (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        ) : (
+          <EnterSite />
+        )}
       </React.Fragment>
     );
   }
 }
+
+export default withRouter(MyApp);

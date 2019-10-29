@@ -28,14 +28,18 @@ export const Navbar = () => {
           router.pathname === '/visuals' ? 'active' : ''
         }`}
       >
-        Visuals
+        <Link href="/releases">
+          <button>Visuals</button>
+        </Link>
       </div>
       <div
         className={`nav-links ${
           router.pathname === '/webstore' ? 'active' : ''
         }`}
       >
-        Webstore
+        <Link href="/releases">
+          <button>Webstore</button>
+        </Link>
       </div>
       <div
         className={`nav-links ${

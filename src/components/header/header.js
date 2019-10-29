@@ -1,35 +1,25 @@
 import React from 'react';
-import useMedia from 'use-media';
 
 export const Header = () => {
-  const isWide = useMedia({ minWidth: 1450 });
-
   return (
     <>
-      {isWide ? (
-        <img
-          style={{ height: '250px' }}
-          src="/static/sun.png"
-          alt="sun of Legbah"
-        />
-      ) : null}
+      <img
+        className="object-contain w-1/5 hidden sm:hidden md:hidden lg:block"
+        src="/static/sun.png"
+        alt="sun of Legbah"
+      />
 
       <img
-        style={{
-          height: '250px',
-          width: '500px'
-        }}
+        className="object-contain w-full sm:w-full md:w-full lg:w-1/2"
         src="/static/legbah-inverted.png"
         alt="logotype of Legbah"
       />
 
-      {isWide ? (
-        <img
-          style={{ height: '250px' }}
-          src="/static/sun.png"
-          alt="sun of Legbah"
-        />
-      ) : null}
+      <img
+        className="object-contain w-1/5 hidden sm:hidden md:hidden lg:block"
+        src="/static/sun.png"
+        alt="sun of Legbah"
+      />
     </>
   );
 };
