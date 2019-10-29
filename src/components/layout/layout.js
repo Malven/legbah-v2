@@ -9,7 +9,7 @@ export const Layout = ({ children }) => {
   const isWide = useMedia({ minWidth: 1450 });
 
   return (
-    <div className="container mx-auto">
+     <div className="container mx-auto">
       <div className="legbah-grid-container">
         <div
           className={`legbah-header ${!isWide ? 'header-logo__center' : ''}`}
