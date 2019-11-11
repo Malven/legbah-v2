@@ -1,21 +1,19 @@
 import React from 'react';
 
 export const NewsList = () => (
-  <div className="main-container">
-    <div className="block">
-      <h2>17.9.2019</h2>
-    </div>
-    <div className="block w-8/12">
-      <img
-        className="object-contain"
-        src="/static/legbah.jpeg"
-        alt="album cover of limited edition"
-      />
-    </div>
-    <div className="block">
-      <p>Brambled 12" Vinyl in gatefold sleeve</p>
-      <p>Limited edition of 100 copies</p>
-      <p>Headnumbered and signed</p>
+  <div className="flex flex-col p-5">
+    <h1 className="self-center">17.9.2019</h1>
+    <img
+      className="self-center object-contain"
+      src="/static/legbah.jpeg"
+      alt="album cover of limited edition"
+    />
+    <div className="self-center">
+      <p className="text-lg">
+        Brambled 12" Vinyl in gatefold sleeadwdadawdawdawdawdawdawdawdve
+      </p>
+      <p className="text-lg">Limited edition of 100 copies</p>
+      <p className="text-lg">Headnumbered and signed</p>
     </div>
   </div>
 );

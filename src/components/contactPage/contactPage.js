@@ -82,7 +82,7 @@ export const ContactPage = () => {
           <input
             type="submit"
             value="Send"
-            class="cursor-pointer border hover:border-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded mb-2 mt-1"
+            className="cursor-pointer border hover:border-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded mb-2 mt-1"
           />
         </form>
       </div>

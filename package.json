@@ -10,6 +10,7 @@
     "react": "16.10.2",
     "react-dom": "16.10.2",
     "react-hook-form": "^3.24.1",
+    "react-stickynode": "^2.1.1",
     "use-media": "^1.4.0"
   },
   "devDependencies": {

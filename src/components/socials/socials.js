@@ -6,7 +6,14 @@ import FacebookIcon from '../../icons/facebook';
 
 export const Socials = () => {
   return (
-    <div className="socials">
+    <div className="flex flex-row md:flex-row justify-around p-5">
+      <a
+        href="https://www.facebook.com/Legbah/"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <FacebookIcon size={48} className="social-icon" />
+      </a>
       <a
         href="https://legbahofficial.bandcamp.com/"
         target="_blank"
@@ -27,13 +34,6 @@ export const Socials = () => {
         rel="noreferrer noopener"
       >
         <YouTubeIcon size={48} className="social-icon" />
-      </a>
-      <a
-        href="https://www.facebook.com/Legbah/"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        <FacebookIcon size={48} className="social-icon" />
       </a>
     </div>
   );

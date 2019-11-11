@@ -10,7 +10,7 @@ export const Header = () => {
       />
 
       <img
-        className="object-contain w-full sm:w-full md:w-full lg:w-1/2"
+        className="max-h-full object-contain w-full sm:w-full md:w-full lg:w-1/2"
         src="/static/legbah-inverted.png"
         alt="logotype of Legbah"
       />
