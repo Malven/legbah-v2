@@ -8,7 +8,7 @@ export const Layout = ({ children }) => {
   return (
     <div className="container mx-auto">
       <div className="legbah-container">
-        <div className="header">
+        <div className="header hidden lg:block">
           <Header />
         </div>
         <div className="nav">

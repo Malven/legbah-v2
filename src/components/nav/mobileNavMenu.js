@@ -21,15 +21,13 @@ export const MobileNavMenu = () => {
     <React.Fragment>
       <Sticky enabled onStateChange={stateChange}>
         <div
-          className={`flex ${
-            isSticky ? 'justify-between' : 'flex-row-reverse'
-          } text-2xl cursor-pointer text-white bg-black border border-white p-1 `}
+          className={`flex justify-between text-2xl cursor-pointer text-white bg-black border border-white p-1 `}
         >
-          {isSticky && (
-            <Link href="/news">
-              <span className="font-body hover:text-legbah-gold">LEGBAH</span>
-            </Link>
-          )}
+          <Link href="/news">
+            <span className="font-body hover:text-legbah-gold">
+              LEGBAH: Official site
+            </span>
+          </Link>
           <button
             className="outline-none font-display border-solid border border-white hover:border-legbah-gold px-2 text-white bg-black hover:text-legbah-gold"
             onClick={() => setOpen(o => !o)}
@@ -47,7 +45,7 @@ export const MobileNavMenu = () => {
         >
           <div
             className={`text-2xl font-display hover:text-legbah-gold px-1 ${
-              router.pathname === '/news' ? 'text-white' : ''
+              router.pathname === '/news' ? 'text-legbah-gold' : ''
             }`}
           >
             <Link href="/news">
@@ -56,7 +54,7 @@ export const MobileNavMenu = () => {
           </div>
           <div
             className={`text-2xl font-display hover:text-legbah-gold px-1 ${
-              router.pathname === '/releases' ? 'text-white' : ''
+              router.pathname === '/releases' ? 'text-legbah-gold' : ''
             }`}
           >
             <Link href="/releases">
@@ -65,7 +63,7 @@ export const MobileNavMenu = () => {
           </div>
           <div
             className={`text-2xl font-display hover:text-legbah-gold px-1 ${
-              router.pathname === '/visuals' ? 'text-white' : ''
+              router.pathname === '/visuals' ? 'text-legbah-gold' : ''
             }`}
           >
             <Link href="/releases">
@@ -74,7 +72,7 @@ export const MobileNavMenu = () => {
           </div>
           <div
             className={`text-2xl font-display hover:text-legbah-gold  px-1 ${
-              router.pathname === '/webstore' ? 'text-white' : ''
+              router.pathname === '/webstore' ? 'text-legbah-gold' : ''
             }`}
           >
             <Link href="/releases">
@@ -83,7 +81,7 @@ export const MobileNavMenu = () => {
           </div>
           <div
             className={`text-2xl font-display hover:text-legbah-gold px-1 ${
-              router.pathname === '/contact' ? 'text-white' : ''
+              router.pathname === '/contact' ? 'text-legbah-gold' : ''
             }`}
           >
             <Link href="/contact">
