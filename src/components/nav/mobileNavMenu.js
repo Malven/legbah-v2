@@ -1,25 +1,15 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Sticky from 'react-stickynode';
 
 export const MobileNavMenu = () => {
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
-
-  const stateChange = status => {
-    if (status.status === Sticky.STATUS_FIXED) {
-      setIsSticky(true);
-    } else {
-      setIsSticky(false);
-    }
-  };
 
   return (
     <React.Fragment>
-      <Sticky enabled onStateChange={stateChange}>
+      <div className="fixed w-full">
         <div
           className={`flex justify-between text-2xl cursor-pointer text-white bg-black border border-white p-1 `}
         >
@@ -89,7 +79,7 @@ export const MobileNavMenu = () => {
             </Link>
           </div>
         </div>
-      </Sticky>
+      </div>
     </React.Fragment>
   );
 };
