@@ -18,8 +18,8 @@ body {
 .legbah-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 250px minmax(74px, auto) 1fr auto 88px;
-  grid-template-areas: "header" "nav" "main" "tour" "social";
+  grid-template-rows: minmax(74px, auto) 1fr auto 88px;
+  grid-template-areas: "nav" "main" "tour" "social";
 }
 .header { grid-area: header; }
 
@@ -30,6 +30,15 @@ body {
 .tour { grid-area: tour; }
 
 .social { grid-area: social; }
+
+@media (min-width: 1024px) { 
+  .legbah-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px minmax(74px, auto) 1fr auto 88px;
+    grid-template-areas: "header" "nav" "main" "tour" "social";
+  }
+}
 
 h1 {
   @apply text-2xl;
