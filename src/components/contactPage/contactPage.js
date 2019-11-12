@@ -9,9 +9,9 @@ export const ContactPage = () => {
   };
 
   return (
-    <div className="contact-container">
-      <h2>Press images</h2>
-      <div className="contact-presskits h-full mb-4">
+    <div className="flex flex-col items-center">
+      <h1>Press images</h1>
+      <div className="flex flex-wrap justify-center items-center h-full p-5">
         <img
           className="object-contain border hover:border-legbah-gold cursor-pointer w-1/3 m-2"
           src="/static/legbah-inverted.png"
@@ -28,10 +28,10 @@ export const ContactPage = () => {
           alt="legbah album cover, gold text on black background"
         />
       </div>
-      <h2>Get in contact</h2>
-      <div className="contact-form">
+      <h1>Get in contact</h1>
+      <div className="w-full">
         <form
-          className="contact-form-wrapper text-black"
+          className="flex flex-col text-black p-5"
           onSubmit={handleSubmit(onSubmit)}
         >
           <label className="text-white" htmlFor="email">
@@ -39,14 +39,14 @@ export const ContactPage = () => {
           </label>
           <input
             id="email"
-            className="contact-form-input text-lg"
+            className="mb-2 bg-gray-200 focus:shadow-focus hover:bg-white hover:border-gray-300 outline-none focus:bg-white appearance-none border border-transparent rounded w-full py-2 px-4 text-gray-700 leading-tight"
             name="email"
             ref={register({
               pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             })}
           />
           {errors.email && (
-            <span className="contact-form-input-error">
+            <span className="text-red-500 mb-2">
               This field must be a valid email
             </span>
           )}
@@ -55,34 +55,30 @@ export const ContactPage = () => {
           </label>
           <input
             id="subject"
-            className="contact-form-input text-lg"
+            className="mb-2 bg-gray-200 focus:shadow-focus hover:bg-white hover:border-gray-300 outline-none focus:bg-white appearance-none border border-transparent rounded w-full py-2 px-4 text-gray-700 leading-tight"
             name="subject"
             ref={register({ required: true })}
           />
           {errors.subject && (
-            <span className="contact-form-input-error">
-              This field is required
-            </span>
+            <span className="text-red-500 mb-2">This field is required</span>
           )}
           <label className="text-white" htmlFor="content">
             Message *
           </label>
           <textarea
             id="content"
-            className="contact-form-input text-lg"
+            className="mb-2 bg-gray-200 focus:shadow-focus hover:bg-white hover:border-gray-300 outline-none focus:bg-white appearance-none border border-transparent rounded w-full py-2 px-4 text-gray-700 leading-tight"
             name="content"
             ref={register({ required: true })}
           ></textarea>
           {errors.content && (
-            <span className="contact-form-input-error">
-              This field is required
-            </span>
+            <span className="text-red-500 mb-2">This field is required</span>
           )}
 
           <input
             type="submit"
             value="Send"
-            class="cursor-pointer border hover:border-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded mb-2 mt-1"
+            className="cursor-pointer border hover:border-legbah-gold hover:text-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded mb-2 mt-1"
           />
         </form>
       </div>
