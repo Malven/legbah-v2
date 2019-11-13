@@ -13,7 +13,7 @@ export const ContactPage = () => {
       <h1 className="font-display">Contact</h1>
       <div className="flex flex-col items-center">
         <h2>Press images</h2>
-        <div className="flex flex-wrap justify-center items-center h-full">
+        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center h-full">
           <img
             className="object-contain border hover:border-legbah-gold cursor-pointer w-1/3 m-2"
             src="/static/legbah-inverted.png"
@@ -21,8 +21,8 @@ export const ContactPage = () => {
           />
           <img
             className="object-scale-down border hover:border-legbah-gold cursor-pointer w-1/3 m-2"
-            src="/static/legbah-white.jpg"
-            alt="legbah logo, black text on white background"
+            src="/static/band.png"
+            alt="band members"
           />
           <img
             className="object-contain border hover:border-legbah-gold cursor-pointer w-1/3 m-2"
