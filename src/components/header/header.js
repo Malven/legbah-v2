@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <>
       <img
-        className="object-contain w-1/5 hidden sm:hidden md:hidden lg:block"
+        className="object-contain w-1/5 hidden lg:block"
         src="/static/sun.png"
         alt="sun of Legbah"
       />
@@ -16,7 +16,7 @@ export const Header = () => {
       />
 
       <img
-        className="object-contain w-1/5 hidden sm:hidden md:hidden lg:block"
+        className="object-contain w-1/5 hidden lg:block"
         src="/static/sun.png"
         alt="sun of Legbah"
       />
