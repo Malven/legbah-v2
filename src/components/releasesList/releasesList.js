@@ -7,11 +7,11 @@ export const ReleasesList = () => {
       <h1 className="self-center font-display">Releases</h1>
       <div className="flex flex-col md:flex-row">
         <img
-          className="md:w-1/2 self-center object-contain mr-1"
+          className="md:w-1/2 self-center object-contain md:mr-1"
           src="/static/legbah.jpeg"
           alt="album cover of limited edition"
         />
-        <div className="w-full md:w-1/2 self-center">
+        <div className="flex flex-col items-center md:items-start md:w-1/2 self-center w-full">
           <h2>Legbah (2017)</h2>
           <ul className="text-legbah-gold">
             <li>

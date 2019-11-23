@@ -29,7 +29,7 @@ export const NavMenu = () => {
           router.pathname === '/visuals' ? 'text-legbah-gold' : ''
         }`}
       >
-        <Link href="/releases">
+        <Link href="/visuals">
           <button>Visuals</button>
         </Link>
       </div>
