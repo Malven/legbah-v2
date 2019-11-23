@@ -4,8 +4,15 @@ import Link from 'next/link';
 
 export const MobileNavMenu = () => {
   const router = useRouter();
+  const routes = ['/visuals/photos', '/visuals/videos', '/visuals/artwork'];
 
   const [open, setOpen] = useState(false);
+  const [subMenuOpen, setSubMenuOpen] = useState(false);
+
+  const onNavigate = () => {
+    setOpen(false);
+    setSubMenuOpen(false);
+  };
 
   return (
     <React.Fragment>
@@ -39,7 +46,7 @@ export const MobileNavMenu = () => {
             }`}
           >
             <Link href="/news">
-              <button onClick={() => setOpen(false)}>News</button>
+              <button onClick={onNavigate}>News</button>
             </Link>
           </div>
           <div
@@ -48,17 +55,61 @@ export const MobileNavMenu = () => {
             }`}
           >
             <Link href="/releases">
-              <button onClick={() => setOpen(false)}>Releases</button>
+              <button onClick={onNavigate}>Releases</button>
             </Link>
           </div>
           <div
-            className={`text-2xl font-display hover:text-legbah-gold px-1 ${
-              router.pathname === '/visuals' ? 'text-legbah-gold' : ''
+            className={`flex flex-col font-display hover:text-legbah-gold items-end px-1 text-2xl ${
+              routes.includes(router.pathname) ? 'text-legbah-gold' : ''
             }`}
           >
-            <Link href="/releases">
-              <button onClick={() => setOpen(false)}>Visuals</button>
-            </Link>
+            <button onClick={() => setSubMenuOpen(state => !state)}>
+              Visuals
+            </button>
+            <div
+              className={`${
+                subMenuOpen
+                  ? 'bg-black text-white w-full flex flex-col items-end'
+                  : 'hidden'
+              }`}
+            >
+              <Link href="/visuals/photos">
+                <button
+                  className={`${
+                    router.pathname === '/visuals/photos'
+                      ? 'text-legbah-gold'
+                      : 'text-white'
+                  }`}
+                  onClick={onNavigate}
+                >
+                  Photos
+                </button>
+              </Link>
+              <Link href="/visuals/videos">
+                <button
+                  className={`${
+                    router.pathname === '/visuals/videos'
+                      ? 'text-legbah-gold'
+                      : 'text-white'
+                  }`}
+                  onClick={onNavigate}
+                >
+                  Videos
+                </button>
+              </Link>
+              <Link href="/visuals/artwork">
+                <button
+                  className={`${
+                    router.pathname === '/visuals/artwork'
+                      ? 'text-legbah-gold'
+                      : 'text-white'
+                  }`}
+                  onClick={onNavigate}
+                >
+                  Artwork
+                </button>
+              </Link>
+            </div>
           </div>
           <div
             className={`text-2xl font-display hover:text-legbah-gold  px-1 ${
@@ -66,7 +117,7 @@ export const MobileNavMenu = () => {
             }`}
           >
             <Link href="/releases">
-              <button onClick={() => setOpen(false)}>Webstore</button>
+              <button onClick={onNavigate}>Webstore</button>
             </Link>
           </div>
           <div
@@ -75,7 +126,7 @@ export const MobileNavMenu = () => {
             }`}
           >
             <Link href="/contact">
-              <button onClick={() => setOpen(false)}>Contact</button>
+              <button onClick={onNavigate}>Contact</button>
             </Link>
           </div>
         </div>

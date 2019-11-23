@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import PlayIcon from '../../../icons/play';
 
 export const Song = ({ spotifyURL, songTitle }) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -8,14 +9,19 @@ export const Song = ({ spotifyURL, songTitle }) => {
 
   return (
     <div>
-      <button onClick={handleChange}>{songTitle}</button>
+      <button className="p-1" onClick={handleChange}>
+        <span>{songTitle}</span>
+        <i className="inline-block ml-1">
+          <PlayIcon size={8} />
+        </i>
+      </button>
       <div className={`${collapsed ? 'hidden' : 'block'}`}>
         <iframe
           title={songTitle}
           src={spotifyURL}
           width="100%"
           height="100"
-          frameborder="0"
+          frameBorder="0"
           allowtransparency="true"
           allow="encrypted-media"
         ></iframe>
