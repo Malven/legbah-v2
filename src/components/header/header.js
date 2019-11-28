@@ -4,19 +4,19 @@ export const Header = () => {
   return (
     <>
       <img
-        className="object-contain w-1/5 hidden lg:block"
+        className="h-48 hidden md:inline-flex object-contain"
         src="/static/sun.png"
         alt="sun of Legbah"
       />
 
       <img
-        className="max-h-full object-contain w-full sm:w-full md:w-full lg:w-1/2"
+        className="h-full md:inline-flex object-contain"
         src="/static/legbah-inverted.png"
         alt="logotype of Legbah"
       />
 
       <img
-        className="object-contain w-1/5 hidden lg:block"
+        className="h-48 hidden md:inline-flex object-contain"
         src="/static/sun.png"
         alt="sun of Legbah"
       />

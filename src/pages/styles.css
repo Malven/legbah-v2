@@ -30,12 +30,21 @@ body {
 
 .social { grid-area: social; }
 
-@media (min-width: 1024px) { 
+@media (min-width: 768px) { 
   .legbah-container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 250px minmax(74px, auto) 1fr auto 88px;
     grid-template-areas: "header" "nav" "main" "tour" "social";
+  }
+}
+
+@media (min-width: 1024px) { 
+  .legbah-container {
+    display: grid;
+    grid-template-columns: 2.1fr 0.4fr 0.8fr;
+    grid-template-rows: 250px minmax(74px, auto) 1fr;
+    grid-template-areas: "header . social" "nav . tour" "main . tour";
   }
 }
 
