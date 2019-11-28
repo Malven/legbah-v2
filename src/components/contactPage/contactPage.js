@@ -1,22 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import useForm from 'react-hook-form';
-import Gallery from 'react-photo-gallery';
-import Carousel, { Modal, ModalGateway } from 'react-images';
+import { Gallery } from '../gallery/gallery';
 
 export const ContactPage = () => {
   const { register, handleSubmit, errors } = useForm();
-  const [currentImage, setCurrentImage] = useState(0);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
-
-  const openLightbox = useCallback((event, { index }) => {
-    setCurrentImage(index);
-    setViewerIsOpen(true);
-  }, []);
-
-  const closeLightbox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(false);
-  };
 
   const photos = [
     {
@@ -48,30 +35,7 @@ export const ContactPage = () => {
       <h1 className="font-display">Contact</h1>
       <div>
         <h2 className="text-center">Press images</h2>
-
-        <div>
-          <Gallery
-            photos={photos}
-            onClick={openLightbox}
-            targetRowHeight={300}
-          />
-          <ModalGateway>
-            {viewerIsOpen ? (
-              <Modal onClose={closeLightbox}>
-                <Carousel
-                  showThumbnails={true}
-                  currentIndex={currentImage}
-                  views={photos.map(x => ({
-                    ...x,
-                    srcset: x.srcSet,
-                    caption: x.title,
-                    alt: x.title
-                  }))}
-                />
-              </Modal>
-            ) : null}
-          </ModalGateway>
-        </div>
+        <Gallery photos={photos} />
         <h2 className="mt-1">Get in contact</h2>
         <div className="w-full">
           <form

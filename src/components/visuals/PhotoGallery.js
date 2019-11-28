@@ -1,7 +1,7 @@
 import React from 'react';
 import { Gallery } from '../gallery/gallery';
 
-export const ArtworkGallery = () => {
+export const PhotoGallery = () => {
   const photos = [
     {
       src: '/static/legbah-inverted.png',
@@ -25,7 +25,7 @@ export const ArtworkGallery = () => {
 
   return (
     <div className="flex flex-col items-center  p-5">
-      <h1 className="text-center font-display pt-5">Artwork</h1>
+      <h1 className="text-center font-display pt-5">Photos</h1>
       <Gallery photos={photos} />
     </div>
   );
