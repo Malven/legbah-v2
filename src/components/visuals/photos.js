@@ -1,5 +1,5 @@
 import React from 'react';
-import { Gallery } from './gallery/gallery';
+import { Gallery } from './gallery';
 
 export const PhotoGallery = () => {
   const photos = [
