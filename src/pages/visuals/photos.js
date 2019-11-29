@@ -1,6 +1,6 @@
 import React from 'react';
-import { PhotoGallery } from '../../components/visuals/photoGallery';
+// import { PhotoGallery } from '../../components/visuals/photoGallery';
 
-const Photos = () => <PhotoGallery />;
+const Photos = () => <div>asdasd</div>; // <PhotoGallery />;
 
 export default Photos;
