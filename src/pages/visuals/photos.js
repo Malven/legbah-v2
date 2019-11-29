@@ -1,5 +1,5 @@
 import React from 'react';
-import { PhotoGallery } from '../../components/visuals/photoGallery';
+import { PhotoGallery } from '../../components/visuals/photos';
 
 const Photos = () => <PhotoGallery />;
 
