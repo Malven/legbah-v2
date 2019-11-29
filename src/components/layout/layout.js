@@ -13,7 +13,7 @@ export const Layout = ({ children }) => {
       </div>
       <div className="container mx-auto">
         <div className="legbah-container">
-          <div className="header hidden lg:block">
+          <div className="flex header hidden justify-between md:flex">
             <Header />
           </div>
           <div className="nav">
