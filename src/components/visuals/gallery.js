@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
-import Gallery from 'react-photo-gallery';
+import RPH from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 
-export const PhotoGallery = () => {
+export const Gallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
@@ -41,7 +41,7 @@ export const PhotoGallery = () => {
     <div className="flex flex-col items-center  p-5">
       <h1 className="text-center font-display pt-5">Photos</h1>
       <div>
-        <Gallery photos={photos} onClick={openLightbox} targetRowHeight={300} />
+        <RPH photos={photos} onClick={openLightbox} targetRowHeight={300} />
         <ModalGateway>
           {viewerIsOpen ? (
             <Modal onClose={closeLightbox}>
