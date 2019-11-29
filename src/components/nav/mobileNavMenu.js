@@ -113,10 +113,10 @@ export const MobileNavMenu = () => {
           </div>
           <div
             className={`text-2xl font-display hover:text-legbah-gold  px-1 ${
-              router.pathname === '/webstore' ? 'text-legbah-gold' : ''
+              router.pathname === '/store' ? 'text-legbah-gold' : ''
             }`}
           >
-            <Link href="/releases">
+            <Link href="/store">
               <button onClick={onNavigate}>Webstore</button>
             </Link>
           </div>

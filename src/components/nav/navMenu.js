@@ -84,10 +84,10 @@ export const NavMenu = () => {
       </div>
       <div
         className={`text-4xl font-display hover:text-legbah-gold ${
-          router.pathname === '/webstore' ? 'text-legbah-gold' : ''
+          router.pathname === '/store' ? 'text-legbah-gold' : ''
         }`}
       >
-        <Link href="/releases">
+        <Link href="/store">
           <button>Webstore</button>
         </Link>
       </div>
