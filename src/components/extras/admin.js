@@ -35,8 +35,16 @@ export const Admin = () => {
         {news.length > 0 &&
           news.map(n => (
             <li key={n.newsId}>
-              {n.body} -{' '}
-              <button onClick={() => deleteOneNews(n.newsId)}>Delete</button>
+              {n.body}
+              {n.userHandle === user.credentials.handle && (
+                <>
+                  {' '}
+                  -{' '}
+                  <button onClick={() => deleteOneNews(n.newsId)}>
+                    Delete
+                  </button>
+                </>
+              )}
             </li>
           ))}
       </ul>
