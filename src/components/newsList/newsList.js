@@ -1,6 +1,7 @@
 import React from 'react';
+import { format } from 'date-fns'
 
-export const NewsList = () => (
+export const NewsList = ({ news }) => (
   <div className="flex flex-col p-5">
     <h1 className="self-center font-display">News</h1>
     <div className="flex flex-col">
@@ -18,5 +19,17 @@ export const NewsList = () => (
         <p className="text-lg">Headnumbered and signed</p>
       </div>
     </div>
+    {news.map(n => (
+      <div key={n.newsId} className="flex flex-col">
+        <h2 className="self-center">{format(new Date(n.createdAt), 'dd.MM.yyyy')}</h2>
+        <div className="self-center">
+          <p className="text-lg">{n.body}</p>
+        </div>
+      </div>
+    ))}
   </div>
 );
+
+NewsList.defaultProps = {
+  news: []
+};

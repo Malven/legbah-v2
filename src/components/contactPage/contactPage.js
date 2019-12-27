@@ -1,5 +1,5 @@
 import React from 'react';
-import useForm from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { Gallery } from '../gallery/gallery';
 
 export const ContactPage = () => {

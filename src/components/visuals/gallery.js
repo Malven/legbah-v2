@@ -38,26 +38,23 @@ export const Gallery = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center  p-5">
-      <h1 className="text-center font-display pt-5">Photos</h1>
-      <div>
-        <RPH photos={photos} onClick={openLightbox} targetRowHeight={300} />
-        <ModalGateway>
-          {viewerIsOpen ? (
-            <Modal onClose={closeLightbox}>
-              <Carousel
-                currentIndex={currentImage}
-                views={photos.map(x => ({
-                  ...x,
-                  srcset: x.srcSet,
-                  caption: x.title,
-                  alt: x.title
-                }))}
-              />
-            </Modal>
-          ) : null}
-        </ModalGateway>
-      </div>
+    <div>
+      <RPH photos={photos} onClick={openLightbox} targetRowHeight={300} />
+      <ModalGateway>
+        {viewerIsOpen ? (
+          <Modal onClose={closeLightbox}>
+            <Carousel
+              currentIndex={currentImage}
+              views={photos.map(x => ({
+                ...x,
+                srcset: x.srcSet,
+                caption: x.title,
+                alt: x.title
+              }))}
+            />
+          </Modal>
+        ) : null}
+      </ModalGateway>
     </div>
   );
 };

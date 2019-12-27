@@ -5,6 +5,8 @@ import { withRouter } from 'next/router';
 import './styles.css';
 import { Layout } from '../components/layout/layout';
 import { EnterSite } from '../components/enterSite/enterSite';
+import AppProvider from '../components/contexts/app/appContext';
+import { Configuration } from '../components/configuration/configuration';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -35,9 +37,13 @@ class MyApp extends App {
           />
         </Head>
         {router.pathname !== '/' ? (
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <AppProvider>
+            <Configuration>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </Configuration>
+          </AppProvider>
         ) : (
           <EnterSite />
         )}
