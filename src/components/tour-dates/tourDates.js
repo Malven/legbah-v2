@@ -5,7 +5,7 @@ export const TourDates = () => (
   <div className="flex flex-col pt-5">
     <h1 className="self-center font-display text-4xl">Tour dates</h1>
     <hr className="mb-1" />
-    <ul className="list-inside">
+    <ul className="list-inside mx-1">
       <li className="">
         <span className="text-legbah-gray text-lg">
           {`${faker.date

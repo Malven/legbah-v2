@@ -10,7 +10,12 @@ import {
   SET_NEWS,
   POST_NEWS,
   DELETE_NEWS,
-  SET_ONE_NEWS
+  SET_ONE_NEWS,
+  POST_PHOTO,
+  DELETE_PHOTO,
+  GET_PHOTOS,
+  GET_PHOTO_GROUPS,
+  ADD_PHOTO_GROUP
 } from './types';
 import { initialValue } from './appContext';
 
@@ -90,6 +95,52 @@ export const reducer = (state, action) => {
         ui: {
           ...state.ui,
           loading: false
+        }
+      };
+    }
+    case POST_PHOTO: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          photos: [action.payload, ...state.data.photos]
+        }
+      };
+    }
+    case DELETE_PHOTO: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          photos: state.data.photos.filter(p => p.photoId !== action.payload)
+        }
+      };
+    }
+    case GET_PHOTOS: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          photos: action.payload,
+          loading: false
+        }
+      };
+    }
+    case GET_PHOTO_GROUPS: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          groups: action.payload
+        }
+      };
+    }
+    case ADD_PHOTO_GROUP: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          groups: [action.payload, ...state.data.groups]
         }
       };
     }

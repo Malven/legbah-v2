@@ -40,7 +40,7 @@ export const NavMenu = () => {
         <div
           className={`${
             subMenuOpen
-              ? 'absolute bg-black text-white w-full flex flex-col items-end'
+              ? 'absolute bg-black border flex flex-col items-end px-16 text-white w-full'
               : 'hidden'
           }`}
         >
