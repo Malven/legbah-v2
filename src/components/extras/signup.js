@@ -120,9 +120,6 @@ export const Signup = () => {
                 loading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             />
-            <pre className="text-white">
-              {JSON.stringify(uiErrors, null, 2)}
-            </pre>
           </form>
         </div>
       </div>
