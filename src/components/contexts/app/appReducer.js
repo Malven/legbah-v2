@@ -15,7 +15,10 @@ import {
   DELETE_PHOTO,
   GET_PHOTOS,
   GET_PHOTO_GROUPS,
-  ADD_PHOTO_GROUP
+  ADD_PHOTO_GROUP,
+  GET_TOURS,
+  ADD_TOUR,
+  DELETE_TOUR
 } from './types';
 import { initialValue } from './appContext';
 
@@ -141,6 +144,35 @@ export const reducer = (state, action) => {
         data: {
           ...state.data,
           groups: [action.payload, ...state.data.groups]
+        }
+      };
+    }
+    case GET_TOURS: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          tours: action.payload
+        }
+      };
+    }
+    case ADD_TOUR: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          tours: [action.payload, ...state.data.tours].sort((a, b) =>
+            a.liveDate > b.liveDate ? 1 : -1
+          )
+        }
+      };
+    }
+    case DELETE_TOUR: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          tours: state.data.tours.filter(x => x.tourId !== action.payload)
         }
       };
     }

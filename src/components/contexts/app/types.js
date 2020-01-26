@@ -21,3 +21,6 @@ export const DELETE_PHOTO = 'DELETE_PHOTO';
 export const GET_PHOTOS = 'GET_PHOTOS';
 export const ADD_PHOTO_GROUP = 'ADD_PHOTO_GROUP';
 export const GET_PHOTO_GROUPS = 'GET_PHOTO_GROUPS';
+export const GET_TOURS = 'GET_TOURS';
+export const ADD_TOUR = 'ADD_TOUR';
+export const DELETE_TOUR = 'DELETE_TOUR';

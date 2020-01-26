@@ -11,12 +11,14 @@ export const GalleryLoader = ({ label, type }) => {
 
   useEffect(() => {
     const setup = async () => {
-      await getPhotoGroups();
-      await getPhotos();
+      if (!photos.length) {
+        await getPhotoGroups();
+        await getPhotos();
+      }
     };
 
     setup();
-  }, [getPhotoGroups, getPhotos]);
+  }, [getPhotoGroups, getPhotos, photos.length]);
 
   return (
     <div className="p-5">

@@ -78,7 +78,7 @@ export const SelectedImage = ({
             }`}
             onClick={onDeletePhoto}
           >
-            Delete photo
+            Delete
           </button>
         </div>
         <img
@@ -91,9 +91,21 @@ export const SelectedImage = ({
         />
         <style>{`.not-selected:hover{outline:2px solid #715526}`}</style>
       </div>
-      <div className="bg-yellow-900 border border-yellow-500 m-1 px-1 text-yellow-500">
-        <span>{restPhoto.type}</span>
-      </div>
+      {restPhoto.type.toLowerCase() === 'press' && (
+        <div className="bg-yellow-900 border border-yellow-500 m-1 px-1 text-yellow-500">
+          <span>{restPhoto.type}</span>
+        </div>
+      )}
+      {restPhoto.type.toLowerCase() === 'artwork' && (
+        <div className="bg-blue-900 border border-blue-500 m-1 px-1 text-blue-500">
+          <span>{restPhoto.type}</span>
+        </div>
+      )}
+      {restPhoto.type.toLowerCase() === 'photos' && (
+        <div className="bg-green-900 border border-green-500 m-1 px-1 text-green-500">
+          <span>{restPhoto.type}</span>
+        </div>
+      )}
     </div>
   );
 };

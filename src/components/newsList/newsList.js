@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { format } from 'date-fns';
 import { useAppState } from '../contexts/app/useAppState';
+import { useAppDispatch } from '../contexts/app/useAppDispatch';
 
 export const NewsList = () => {
+  const { getNews } = useAppDispatch();
   const {
     data: { news }
   } = useAppState();
+
+  useEffect(() => {
+    const setup = async () => {
+      if (!news.length) {
+        getNews();
+      }
+    };
+
+    setup();
+  }, [getNews, news.length]);
 
   return (
     <div className="flex flex-col p-5">

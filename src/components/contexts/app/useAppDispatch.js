@@ -16,7 +16,10 @@ import {
   GET_PHOTOS,
   DELETE_PHOTO,
   ADD_PHOTO_GROUP,
-  GET_PHOTO_GROUPS
+  GET_PHOTO_GROUPS,
+  GET_TOURS,
+  ADD_TOUR,
+  DELETE_TOUR
 } from './types';
 import axios from 'axios';
 
@@ -146,6 +149,45 @@ export const useAppDispatch = () => {
     [dispatch]
   );
 
+  const getTours = React.useCallback(async () => {
+    dispatch({ type: LOADING_DATA });
+    try {
+      const result = await axios.get('/tours');
+      dispatch({ type: GET_TOURS, payload: result.data });
+      dispatch({ type: CLEAR_ERRORS });
+    } catch (error) {
+      dispatch({ type: SET_ERRORS, payload: error.response.data });
+    }
+  }, [dispatch]);
+
+  const addTour = React.useCallback(
+    async tour => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        const result = await axios.post('/tours', tour);
+        dispatch({ type: ADD_TOUR, payload: result.data });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const deleteTour = React.useCallback(
+    async tourId => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        await axios.delete(`/tours/${tourId}`);
+        dispatch({ type: DELETE_TOUR, payload: tourId });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
   //USER FUNCTIONS
 
   const getUser = React.useCallback(async () => {
@@ -231,7 +273,10 @@ export const useAppDispatch = () => {
     deletePhoto,
     getPhotos,
     getPhotoGroups,
-    addPhotoGroup
+    addPhotoGroup,
+    getTours,
+    addTour,
+    deleteTour
   };
 };
 
