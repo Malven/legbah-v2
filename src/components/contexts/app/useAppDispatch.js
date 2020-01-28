@@ -19,7 +19,8 @@ import {
   GET_PHOTO_GROUPS,
   GET_TOURS,
   ADD_TOUR,
-  DELETE_TOUR
+  DELETE_TOUR,
+  ADD_VIDEOS
 } from './types';
 import axios from 'axios';
 
@@ -188,6 +189,16 @@ export const useAppDispatch = () => {
     [dispatch]
   );
 
+  const addVideos = React.useCallback(videos => {
+    dispatch({ type: LOADING_DATA });
+    try {
+      dispatch({ type: ADD_VIDEOS, payload: videos });
+      dispatch({ type: CLEAR_ERRORS });
+    } catch (error) {
+      dispatch({ type: SET_ERRORS, payload: error.response.data });
+    }
+  },[dispatch])
+
   //USER FUNCTIONS
 
   const getUser = React.useCallback(async () => {
@@ -276,7 +287,8 @@ export const useAppDispatch = () => {
     addPhotoGroup,
     getTours,
     addTour,
-    deleteTour
+    deleteTour,
+    addVideos
   };
 };
 

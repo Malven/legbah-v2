@@ -29,6 +29,7 @@ export const initialValue = {
     artwork: [],
     groups: [],
     tours: [],
+    videos: [],
     loading: false
   },
   ui: { errors: {}, loading: false }

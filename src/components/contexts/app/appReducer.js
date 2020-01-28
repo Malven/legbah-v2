@@ -18,7 +18,8 @@ import {
   ADD_PHOTO_GROUP,
   GET_TOURS,
   ADD_TOUR,
-  DELETE_TOUR
+  DELETE_TOUR,
+  ADD_VIDEOS
 } from './types';
 import { initialValue } from './appContext';
 
@@ -173,6 +174,15 @@ export const reducer = (state, action) => {
         data: {
           ...state.data,
           tours: state.data.tours.filter(x => x.tourId !== action.payload)
+        }
+      };
+    }
+    case ADD_VIDEOS: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          videos: action.payload
         }
       };
     }
