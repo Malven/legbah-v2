@@ -1,41 +1,20 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Gallery } from '../gallery/gallery';
+import { GalleryLoader } from '../visuals/galleryLoader';
 
 export const ContactPage = () => {
   const { register, handleSubmit, errors } = useForm();
-
-  const photos = [
-    {
-      src: '/static/legbah-inverted.png',
-      width: 4,
-      height: 2,
-      title: 'Band logo with white text'
-    },
-    {
-      src: '/static/band.png',
-      width: 5,
-      height: 1,
-      title: 'Band members'
-    },
-    {
-      src: '/static/legbah.jpeg',
-      width: 3,
-      height: 1,
-      title: 'Band logo in gold text'
-    }
-  ];
 
   const onSubmit = data => {
     console.log(data);
   };
 
   return (
-    <div className="flex flex-col items-center  p-5">
+    <div className="flex flex-col items-center p-5">
       <h1 className="font-display">Contact</h1>
-      <div>
+      <div className="w-1/2">
         <h2 className="text-center">Press images</h2>
-        <Gallery photos={photos} />
+        <GalleryLoader type="press" />
         <h2 className="mt-1">Get in contact</h2>
         <div className="w-full">
           <form

@@ -11,7 +11,15 @@ import {
   SET_NEWS,
   DELETE_NEWS,
   POST_NEWS,
-  SET_ONE_NEWS
+  SET_ONE_NEWS,
+  POST_PHOTO,
+  GET_PHOTOS,
+  DELETE_PHOTO,
+  ADD_PHOTO_GROUP,
+  GET_PHOTO_GROUPS,
+  GET_TOURS,
+  ADD_TOUR,
+  DELETE_TOUR
 } from './types';
 import axios from 'axios';
 
@@ -37,6 +45,7 @@ export const useAppDispatch = () => {
 
   const deleteNews = React.useCallback(
     async newsId => {
+      dispatch({ type: LOADING_DATA });
       try {
         await axios.delete(`/news/${newsId}`);
         dispatch({ type: DELETE_NEWS, payload: newsId });
@@ -50,7 +59,7 @@ export const useAppDispatch = () => {
 
   const postNews = React.useCallback(
     async news => {
-      dispatch({ type: LOADING_UI });
+      dispatch({ type: LOADING_DATA });
       try {
         const result = await axios.post('/news', news);
         dispatch({ type: POST_NEWS, payload: result.data });
@@ -64,10 +73,114 @@ export const useAppDispatch = () => {
 
   const getOneNews = React.useCallback(
     async newsId => {
-      dispatch({ type: LOADING_UI });
+      dispatch({ type: LOADING_DATA });
       try {
         const result = await axios.get(`/news/${newsId}`);
         dispatch({ type: SET_ONE_NEWS, payload: result.data });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const postPhoto = React.useCallback(
+    async photo => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        const result = await axios.post('/photos', photo);
+        dispatch({ type: POST_PHOTO, payload: result.data });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const deletePhoto = React.useCallback(
+    async photoId => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        await axios.delete(`/photos/${photoId}`);
+        dispatch({ type: DELETE_PHOTO, payload: photoId });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const getPhotos = React.useCallback(async () => {
+    dispatch({ type: LOADING_DATA });
+    try {
+      const result = await axios.get('/photos');
+      dispatch({ type: GET_PHOTOS, payload: result.data });
+      dispatch({ type: CLEAR_ERRORS });
+    } catch (error) {
+      dispatch({ type: SET_ERRORS, payload: error.response.data });
+    }
+  }, [dispatch]);
+
+  const getPhotoGroups = React.useCallback(async () => {
+    dispatch({ type: LOADING_DATA });
+
+    try {
+      const result = await axios.get('/groups');
+      dispatch({ type: GET_PHOTO_GROUPS, payload: result.data });
+      dispatch({ type: CLEAR_ERRORS });
+    } catch (error) {
+      dispatch({ type: SET_ERRORS, payload: error.response.data });
+    }
+  }, [dispatch]);
+
+  const addPhotoGroup = React.useCallback(
+    async group => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        const result = await axios.post('/groups', group);
+        dispatch({ type: ADD_PHOTO_GROUP, payload: result.data });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const getTours = React.useCallback(async () => {
+    dispatch({ type: LOADING_DATA });
+    try {
+      const result = await axios.get('/tours');
+      dispatch({ type: GET_TOURS, payload: result.data });
+      dispatch({ type: CLEAR_ERRORS });
+    } catch (error) {
+      dispatch({ type: SET_ERRORS, payload: error.response.data });
+    }
+  }, [dispatch]);
+
+  const addTour = React.useCallback(
+    async tour => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        const result = await axios.post('/tours', tour);
+        dispatch({ type: ADD_TOUR, payload: result.data });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const deleteTour = React.useCallback(
+    async tourId => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        await axios.delete(`/tours/${tourId}`);
+        dispatch({ type: DELETE_TOUR, payload: tourId });
+        dispatch({ type: CLEAR_ERRORS });
       } catch (error) {
         dispatch({ type: SET_ERRORS, payload: error.response.data });
       }
@@ -132,7 +245,10 @@ export const useAppDispatch = () => {
         dispatch({ type: CLEAR_ERRORS });
         history.push('/news');
       } catch (error) {
-        dispatch({ type: SET_ERRORS, payload: error.response.data });
+        dispatch({
+          type: SET_ERRORS,
+          payload: error.response ? error.response.data : error
+        });
       }
     },
     [dispatch, getUser]
@@ -152,7 +268,15 @@ export const useAppDispatch = () => {
     postNews,
     deleteNews,
     getOneNews,
-    clearErrors
+    clearErrors,
+    postPhoto,
+    deletePhoto,
+    getPhotos,
+    getPhotoGroups,
+    addPhotoGroup,
+    getTours,
+    addTour,
+    deleteTour
   };
 };
 

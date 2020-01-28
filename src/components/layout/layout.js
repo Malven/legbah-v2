@@ -27,8 +27,8 @@ export const Layout = ({ children }) => {
           <div className="nav">
             <Navbar />
           </div>
-          <div className="main">{children}</div>
-          <div className="tour">
+          <div className="main p-1">{children}</div>
+          <div className="tour p-1">
             <TourDates />
           </div>
           <div className="social">
@@ -36,7 +36,7 @@ export const Layout = ({ children }) => {
           </div>
         </div>
         {user.authenticated && (
-          <div>
+          <div className="p-1">
             <p>Logged in as: {user.credentials.handle}</p>
             <div className="flex">
               <button

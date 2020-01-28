@@ -25,8 +25,10 @@ export const initialValue = {
   data: {
     news: [],
     currentNews: {},
-    photos: {},
-    artwork: {},
+    photos: [],
+    artwork: [],
+    groups: [],
+    tours: [],
     loading: false
   },
   ui: { errors: {}, loading: false }

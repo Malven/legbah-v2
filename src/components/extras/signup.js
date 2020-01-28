@@ -6,13 +6,14 @@ import { useAppState } from '../contexts/app/useAppState';
 
 export const Signup = () => {
   const { register, handleSubmit, errors, getValues } = useForm();
-  const { signup } = useAppDispatch();
+  const { signup, clearErrors } = useAppDispatch();
   const {
-    ui: { loading }
+    ui: { loading, errors: uiErrors }
   } = useAppState();
   const router = useRouter();
 
   const onSubmit = data => {
+    clearErrors();
     signup(data, router);
   };
 
@@ -40,6 +41,9 @@ export const Signup = () => {
             {errors.handle && (
               <span className="text-red-500 mb-2">This field is required</span>
             )}
+            {uiErrors.handle && (
+              <span className="text-red-500 mb-2">{uiErrors.handle}</span>
+            )}
 
             <label className="text-white" htmlFor="email">
               Email *
@@ -57,6 +61,9 @@ export const Signup = () => {
               <span className="text-red-500 mb-2">
                 This field must be a valid email
               </span>
+            )}
+            {uiErrors.email && (
+              <span className="text-red-500 mb-2">{uiErrors.email}</span>
             )}
 
             <label className="text-white" htmlFor="password">
@@ -101,6 +108,10 @@ export const Signup = () => {
                   This field must match password field
                 </span>
               )}
+
+            {uiErrors.general && (
+              <span className="text-red-500 mb-2">{uiErrors.general}</span>
+            )}
 
             <input
               type="submit"

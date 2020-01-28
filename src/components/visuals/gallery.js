@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import RPH from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 
-export const Gallery = () => {
+export const Gallery = ({ photos }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
@@ -15,27 +15,6 @@ export const Gallery = () => {
     setCurrentImage(0);
     setViewerIsOpen(false);
   };
-
-  const photos = [
-    {
-      src: '/static/legbah-inverted.png',
-      width: 4,
-      height: 2,
-      title: 'Band logo with white text'
-    },
-    {
-      src: '/static/band.png',
-      width: 5,
-      height: 1,
-      title: 'Band members'
-    },
-    {
-      src: '/static/legbah.jpeg',
-      width: 3,
-      height: 1,
-      title: 'Band logo in gold text'
-    }
-  ];
 
   return (
     <div>
@@ -55,6 +34,7 @@ export const Gallery = () => {
           </Modal>
         ) : null}
       </ModalGateway>
+      <style>{`.react-images__view > img{margin: 0 auto}`}</style>
     </div>
   );
 };

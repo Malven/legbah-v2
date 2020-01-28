@@ -18,7 +18,7 @@ export const MobileNavMenu = () => {
     <React.Fragment>
       <div className="fixed w-full">
         <div
-          className={`flex justify-between text-2xl cursor-pointer text-white bg-black border border-white p-1 `}
+          className={`flex justify-between text-2xl cursor-pointer text-white bg-black border border-white p-1 border-legbah-gold`}
         >
           <Link href="/news">
             <span className="font-body hover:text-legbah-gold">
