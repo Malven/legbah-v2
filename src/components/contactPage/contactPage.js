@@ -18,6 +18,9 @@ export const ContactPage = () => {
         <h2 className="mt-1">Get in contact</h2>
         <div className="w-full">
           <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
             className="flex flex-col text-black"
             onSubmit={handleSubmit(onSubmit)}
           >

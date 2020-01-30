@@ -4,7 +4,6 @@ import { useAppDispatch } from '../contexts/app/useAppDispatch';
 import { useAppState } from '../contexts/app/useAppState';
 import ReactPlayer from 'react-player';
 
-const apiKey = 'AIzaSyBaEU9RriCx3U-dopQ2pClVoJV6vFHaQqU';
 const channelId = 'UC2PFd2XkmQQvDdCIWXMV4MQ';
 
 export const VideoGallery = () => {
@@ -26,7 +25,7 @@ export const VideoGallery = () => {
           params: {
             part: 'contentDetails',
             id: channelId,
-            key: apiKey
+            key: process.env.YOUTUBE
           }
         }
       );
@@ -42,7 +41,7 @@ export const VideoGallery = () => {
                 part: 'snippet',
                 maxResults: 20,
                 playlistId: playlistId,
-                key: apiKey
+                key: process.env.YOUTUBE
               }
             }
           );
