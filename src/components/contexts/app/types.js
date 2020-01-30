@@ -25,3 +25,6 @@ export const GET_TOURS = 'GET_TOURS';
 export const ADD_TOUR = 'ADD_TOUR';
 export const DELETE_TOUR = 'DELETE_TOUR';
 export const ADD_VIDEOS = 'ADD_VIDEOS';
+export const GET_CONTACTS = 'GET_CONTACTS';
+export const ADD_CONTACT = 'ADD_CONTACT';
+export const DELETE_CONTACT = 'DELETE_CONTACT';

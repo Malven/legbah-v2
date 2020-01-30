@@ -49,7 +49,7 @@ export const AdminTours = () => {
               }`}
               onClick={() => handleOnDelete(tour.tourId)}
             >
-              delete
+              Delete
             </button>
           </div>
         ))}

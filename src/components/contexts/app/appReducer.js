@@ -19,7 +19,10 @@ import {
   GET_TOURS,
   ADD_TOUR,
   DELETE_TOUR,
-  ADD_VIDEOS
+  ADD_VIDEOS,
+  ADD_CONTACT,
+  GET_CONTACTS,
+  DELETE_CONTACT
 } from './types';
 import { initialValue } from './appContext';
 
@@ -183,6 +186,35 @@ export const reducer = (state, action) => {
         data: {
           ...state.data,
           videos: action.payload
+        }
+      };
+    }
+    case ADD_CONTACT: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          contacts: [action.payload, ...state.data.contacts]
+        }
+      };
+    }
+    case GET_CONTACTS: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          contacts: action.payload
+        }
+      };
+    }
+    case DELETE_CONTACT: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          contacts: state.data.contacts.filter(
+            x => x.contactId !== action.payload
+          )
         }
       };
     }

@@ -30,6 +30,7 @@ export const initialValue = {
     groups: [],
     tours: [],
     videos: [],
+    contacts: [],
     loading: false
   },
   ui: { errors: {}, loading: false }
