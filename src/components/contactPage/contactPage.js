@@ -22,7 +22,7 @@ export const ContactPage = () => {
             method="POST"
             data-netlify="true"
             className="flex flex-col text-black"
-            onSubmit={handleSubmit(onSubmit)}
+            // onSubmit={handleSubmit(onSubmit)}
           >
             <label className="text-white" htmlFor="email">
               Email *
