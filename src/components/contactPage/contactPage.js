@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { GalleryLoader } from '../visuals/galleryLoader';
+import { useAppDispatch } from '../contexts/app/useAppDispatch';
 
 export const ContactPage = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm();
+  const { addContact } = useAppDispatch();
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    if (showMessage) {
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 3000);
+    }
+  }, [showMessage]);
 
   const onSubmit = data => {
-    console.log(data);
+    setShowMessage(true);
+    addContact(data);
+    reset();
   };
 
   return (
@@ -49,19 +62,22 @@ export const ContactPage = () => {
             {errors.subject && (
               <span className="text-red-500 mb-2">This field is required</span>
             )}
-            <label className="text-white" htmlFor="content">
+            <label className="text-white" htmlFor="message">
               Message *
             </label>
             <textarea
-              id="content"
+              id="message"
               className="mb-2 bg-gray-200 focus:shadow-focus hover:bg-white hover:border-gray-300 outline-none focus:bg-white appearance-none border border-transparent rounded w-full py-2 px-4 text-gray-700 leading-tight"
-              name="content"
+              name="message"
               ref={register({ required: true })}
             ></textarea>
-            {errors.content && (
+            {errors.message && (
               <span className="text-red-500 mb-2">This field is required</span>
             )}
 
+            {showMessage && (
+              <div className="text-white text-xl">Message sent</div>
+            )}
             <input
               type="submit"
               value="Send"

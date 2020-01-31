@@ -19,7 +19,11 @@ import {
   GET_PHOTO_GROUPS,
   GET_TOURS,
   ADD_TOUR,
-  DELETE_TOUR
+  DELETE_TOUR,
+  ADD_VIDEOS,
+  GET_CONTACTS,
+  ADD_CONTACT,
+  DELETE_CONTACT
 } from './types';
 import axios from 'axios';
 
@@ -188,6 +192,58 @@ export const useAppDispatch = () => {
     [dispatch]
   );
 
+  const addVideos = React.useCallback(
+    videos => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        dispatch({ type: ADD_VIDEOS, payload: videos });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const getContacts = React.useCallback(async () => {
+    dispatch({ type: LOADING_DATA });
+    try {
+      const result = await axios.get('/contacts');
+      dispatch({ type: GET_CONTACTS, payload: result.data });
+      dispatch({ type: CLEAR_ERRORS });
+    } catch (error) {
+      dispatch({ type: SET_ERRORS, payload: error.response.data });
+    }
+  }, [dispatch]);
+
+  const addContact = React.useCallback(
+    async contact => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        const result = await axios.post('/contacts', contact);
+        dispatch({ type: ADD_CONTACT, payload: result.data });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const deleteContact = React.useCallback(
+    async contactId => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        await axios.delete(`/contacts/${contactId}`);
+        dispatch({ type: DELETE_CONTACT, payload: contactId });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
   //USER FUNCTIONS
 
   const getUser = React.useCallback(async () => {
@@ -276,7 +332,11 @@ export const useAppDispatch = () => {
     addPhotoGroup,
     getTours,
     addTour,
-    deleteTour
+    deleteTour,
+    addVideos,
+    getContacts,
+    addContact,
+    deleteContact
   };
 };
 
