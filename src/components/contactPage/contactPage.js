@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { GalleryLoader } from '../visuals/galleryLoader';
 import { useAppDispatch } from '../contexts/app/useAppDispatch';
+import { Editor, EditorState, convertToRaw } from 'draft-js';
 
 export const ContactPage = () => {
   const { register, handleSubmit, errors, reset } = useForm();
   const { addContact } = useAppDispatch();
   const [showMessage, setShowMessage] = useState(false);
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
   useEffect(() => {
     if (showMessage) {
@@ -18,6 +20,9 @@ export const ContactPage = () => {
 
   const onSubmit = data => {
     setShowMessage(true);
+    const content = editorState.getCurrentContent();
+    data.message = convertToRaw(content);
+    setEditorState(EditorState.createEmpty());
     addContact(data);
     reset();
   };
@@ -62,18 +67,15 @@ export const ContactPage = () => {
             {errors.subject && (
               <span className="text-red-500 mb-2">This field is required</span>
             )}
-            <label className="text-white" htmlFor="message">
-              Message *
+            <label className="text-white" htmlFor="subject">
+              Message
             </label>
-            <textarea
-              id="message"
+            <div
+              style={{ minHeight: '6em' }}
               className="mb-2 bg-gray-200 focus:shadow-focus hover:bg-white hover:border-gray-300 outline-none focus:bg-white appearance-none border border-transparent rounded w-full py-2 px-4 text-gray-700 leading-tight"
-              name="message"
-              ref={register({ required: true })}
-            ></textarea>
-            {errors.message && (
-              <span className="text-red-500 mb-2">This field is required</span>
-            )}
+            >
+              <Editor editorState={editorState} onChange={setEditorState} />
+            </div>
 
             {showMessage && (
               <div className="text-white text-xl">Message sent</div>

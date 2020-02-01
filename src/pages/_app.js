@@ -3,6 +3,9 @@ import Head from 'next/head';
 import React from 'react';
 import { withRouter } from 'next/router';
 import './styles.css';
+import '../../node_modules/draft-js/dist/Draft.css';
+import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
 import { Layout } from '../components/layout/layout';
 import { EnterSite } from '../components/enterSite/enterSite';
 import AppProvider from '../components/contexts/app/appContext';

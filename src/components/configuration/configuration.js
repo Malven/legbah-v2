@@ -5,9 +5,8 @@ import { useRouter } from 'next/router';
 import { useAppDispatch } from '../contexts/app/useAppDispatch';
 import { useAppState } from '../contexts/app/useAppState';
 
-axios.defaults.baseURL = 'https://europe-west1-legbah-60d90.cloudfunctions.net/api';
-//'http://localhost:5000/legbah-60d90/europe-west1/api';
- 
+axios.defaults.baseURL = 'http://localhost:5000/legbah-60d90/europe-west1/api'; //'https://europe-west1-legbah-60d90.cloudfunctions.net/api';
+
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = true;
 
 export const Configuration = ({ children }) => {
