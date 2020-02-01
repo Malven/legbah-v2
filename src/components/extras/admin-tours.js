@@ -19,8 +19,10 @@ export const AdminTours = () => {
       }
     };
 
-    setup();
-  }, [getTours]);
+    if (!tours) {
+      setup();
+    }
+  }, [getTours, tours]);
 
   const onSubmit = async data => {
     if (!loading) {

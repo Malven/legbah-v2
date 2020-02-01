@@ -30,8 +30,10 @@ export const AdminPhotos = () => {
       }
     };
 
-    setup();
-  }, [getPhotoGroups, getPhotos]);
+    if (!groups && !photos) {
+      setup();
+    }
+  }, [getPhotoGroups, getPhotos, groups, photos]);
 
   const onSubmit = async e => {
     if (!loading) {

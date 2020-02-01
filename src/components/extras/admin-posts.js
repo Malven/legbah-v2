@@ -28,8 +28,10 @@ export const AdminPosts = () => {
       }
     };
 
-    setup();
-  }, [getNews]);
+    if (!news) {
+      setup();
+    }
+  }, [getNews, news]);
 
   const createNews = async data => {
     if (!loading) {
