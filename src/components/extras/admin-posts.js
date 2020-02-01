@@ -3,9 +3,13 @@ import { useAppState } from '../contexts/app/useAppState';
 import { useAppDispatch } from '../contexts/app/useAppDispatch';
 import { useForm } from 'react-hook-form';
 import { convertToRaw, EditorState } from 'draft-js';
-import { Editor } from 'react-draft-wysiwyg';
+import dynamic from 'next/dynamic';
 import draftToHtml from 'draftjs-to-html';
 import { format } from 'date-fns';
+const Editor = dynamic(
+  () => import('react-draft-wysiwyg').then(mod => mod.Editor),
+  { ssr: false }
+);
 
 export const AdminPosts = () => {
   const { getNews, postNews, deleteNews } = useAppDispatch();
