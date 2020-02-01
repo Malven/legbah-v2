@@ -23,10 +23,10 @@ export const AdminPhotos = () => {
   useEffect(() => {
     const setup = async () => {
       try {
-        if (!groups) {
+        if (groups.length === 0) {
           await getPhotoGroups();
         }
-        if (!photos) {
+        if (photos.length === 0) {
           await getPhotos();
         }
       } catch (error) {
@@ -81,6 +81,7 @@ export const AdminPhotos = () => {
 
   return (
     <div>
+      <h1>Photos</h1>
       {groups.map(g => {
         const groupPhotos = photos.filter(x => x.group === g.name);
 

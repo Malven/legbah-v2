@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useAppState } from '../contexts/app/useAppState';
 import { useAppDispatch } from '../contexts/app/useAppDispatch';
 import { useForm } from 'react-hook-form';
-import { convertToRaw, EditorState } from 'draft-js';
+import { convertToRaw, convertFromRaw, EditorState } from 'draft-js';
 import dynamic from 'next/dynamic';
-import draftToHtml from 'draftjs-to-html';
+import Link from 'next/link';
 import { format } from 'date-fns';
+
 const Editor = dynamic(
   () => import('react-draft-wysiwyg').then(mod => mod.Editor),
   { ssr: false }
@@ -28,7 +29,7 @@ export const AdminPosts = () => {
       }
     };
 
-    if (!news) {
+    if (news.length === 0) {
       setup();
     }
   }, [getNews, news]);
@@ -50,28 +51,40 @@ export const AdminPosts = () => {
 
   return (
     <>
+      <h1>News</h1>
       <ul>
         {news.length > 0 &&
-          news.map((n, index) => (
-            <li key={n.newsId}>
-              <h2>
+          news.map(n => (
+            <li className="flex flex-col md:flex-row my-2" key={n.newsId}>
+              <span className="mr-2">
                 {format(new Date(n.createdAt), 'dd.MM.yyyy')}
+              </span>
+              <div>
+                {EditorState.createWithContent(convertFromRaw(n.body))
+                  .getCurrentContent()
+
+                  .getPlainText()
+                  .substring(0, 50) + '...'}
+              </div>
+              <div className="flex justify-between">
+                <Link href={`/extras/admin/post?newsId=${n.newsId}`}>
+                  <button
+                    className={`mr-4 md:mr-0 md:ml-2 border hover:border-legbah-gold hover:text-legbah-gold px-1 rounded text-base w-1/2 md:w-auto ${
+                      loading ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                  >
+                    Edit
+                  </button>
+                </Link>
                 <button
-                  className="ml-2 border hover:border-legbah-gold hover:text-legbah-gold px-1 rounded text-base"
+                  className={`md:ml-2 border hover:border-legbah-gold hover:text-legbah-gold px-1 rounded text-base w-1/2 md:w-auto ${
+                    loading ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
                   onClick={() => deleteOneNews(n.newsId)}
                 >
                   Delete
                 </button>
-              </h2>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: draftToHtml(n.body)
-                }}
-              />
-
-              {index !== news.length - 1 && (
-                <hr className="my-4 border-legbah-gold" />
-              )}
+              </div>
             </li>
           ))}
       </ul>

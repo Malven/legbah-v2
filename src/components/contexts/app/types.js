@@ -11,7 +11,7 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 //Data types
 export const SET_NEWS = 'SET_NEWS';
-export const SET_SCREAM = 'SET_SCREAM';
+export const UPDATE_NEWS = 'UPDATE_NEWS';
 export const LOADING_DATA = 'LOADING_DATA';
 export const POST_NEWS = 'POST_NEWS';
 export const DELETE_NEWS = 'DELETE_NEWS';

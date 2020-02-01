@@ -20,32 +20,40 @@ export const Admin = () => {
     <div>
       <div className="flex flex-col justify-around md:flex-row mb-4">
         <button
-          className={`cursor-pointer border hover:border-legbah-gold hover:text-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded ${
-            activeSection === sections.posts ? 'bg-legbah-gold' : ''
+          className={`cursor-pointer border hover:border-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded ${
+            activeSection === sections.posts
+              ? 'bg-legbah-gold'
+              : 'hover:text-legbah-gold'
           }`}
           onClick={() => setActiveSection(sections.posts)}
         >
           News
         </button>
         <button
-          className={`cursor-pointer border hover:border-legbah-gold hover:text-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded ${
-            activeSection === sections.photos ? 'bg-legbah-gold' : ''
+          className={`cursor-pointer border hover:border-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded ${
+            activeSection === sections.photos
+              ? 'bg-legbah-gold'
+              : 'hover:text-legbah-gold'
           }`}
           onClick={() => setActiveSection(sections.photos)}
         >
           Photos
         </button>
         <button
-          className={`cursor-pointer border hover:border-legbah-gold hover:text-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded ${
-            activeSection === sections.tours ? 'bg-legbah-gold' : ''
+          className={`cursor-pointer border hover:border-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded ${
+            activeSection === sections.tours
+              ? 'bg-legbah-gold'
+              : 'hover:text-legbah-gold'
           }`}
           onClick={() => setActiveSection(sections.tours)}
         >
           Tours
         </button>
         <button
-          className={`cursor-pointer border hover:border-legbah-gold hover:text-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded ${
-            activeSection === sections.contacts ? 'bg-legbah-gold' : ''
+          className={`cursor-pointer border hover:border-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded ${
+            activeSection === sections.contacts
+              ? 'bg-legbah-gold'
+              : 'hover:text-legbah-gold'
           }`}
           onClick={() => setActiveSection(sections.contacts)}
         >

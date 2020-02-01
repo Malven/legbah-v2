@@ -3,22 +3,34 @@ import { useForm } from 'react-hook-form';
 import { GalleryLoader } from '../visuals/galleryLoader';
 import { useAppDispatch } from '../contexts/app/useAppDispatch';
 import { Editor, EditorState, convertToRaw } from 'draft-js';
+import { useAppState } from '../contexts/app/useAppState';
 
 export const ContactPage = () => {
   const { register, handleSubmit, errors, reset } = useForm();
   const { addContact } = useAppDispatch();
   const [showMessage, setShowMessage] = useState(false);
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const {
+    data: { loading }
+  } = useAppState();
 
   useEffect(() => {
+    let ignore = false;
     if (showMessage) {
       setTimeout(() => {
-        setShowMessage(false);
+        if (!ignore) {
+          setShowMessage(false);
+        }
       }, 3000);
     }
+
+    return () => (ignore = true);
   }, [showMessage]);
 
   const onSubmit = data => {
+    if (loading) {
+      return;
+    }
     setShowMessage(true);
     const content = editorState.getCurrentContent();
     data.message = convertToRaw(content);

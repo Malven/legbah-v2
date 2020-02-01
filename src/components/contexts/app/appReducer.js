@@ -8,6 +8,7 @@ import {
   LOADING_USER,
   LOADING_DATA,
   SET_NEWS,
+  UPDATE_NEWS,
   POST_NEWS,
   DELETE_NEWS,
   SET_ONE_NEWS,
@@ -72,6 +73,15 @@ export const reducer = (state, action) => {
       return {
         ...state,
         data: { ...state.data, news: action.payload, loading: false }
+      };
+    }
+    case UPDATE_NEWS: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          news: updateNews(state, action.payload)
+        }
       };
     }
     case POST_NEWS: {
@@ -221,4 +231,10 @@ export const reducer = (state, action) => {
     default:
       return state;
   }
+};
+
+const updateNews = (state, news) => {
+  const other = state.data.news.filter(x => x.newsId !== news.newsId);
+  other.push(news);
+  return other.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
 };
