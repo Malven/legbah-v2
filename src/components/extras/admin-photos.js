@@ -23,16 +23,18 @@ export const AdminPhotos = () => {
   useEffect(() => {
     const setup = async () => {
       try {
-        await getPhotoGroups();
-        await getPhotos();
+        if (!groups) {
+          await getPhotoGroups();
+        }
+        if (!photos) {
+          await getPhotos();
+        }
       } catch (error) {
         console.error(error);
       }
     };
 
-    if (!groups && !photos) {
-      setup();
-    }
+    setup();
   }, [getPhotoGroups, getPhotos, groups, photos]);
 
   const onSubmit = async e => {
