@@ -34,8 +34,8 @@ export const AdminPosts = () => {
   const createNews = async data => {
     if (!loading) {
       const content = editorState.getCurrentContent();
-      console.log(convertToRaw(content));
       data.body = convertToRaw(content);
+      setEditorState(EditorState.createEmpty());
       await postNews(data);
     }
   };

@@ -25,12 +25,12 @@ export const Configuration = ({ children }) => {
         router.push('/');
       } else {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        if (!user) {
+        if (!user.authenticated) {
           getUser();
         }
       }
     }
-  }, [getUser, logout, router, user]);
+  }, [getUser, logout, router, user.authenticated]);
 
   return children;
 };
