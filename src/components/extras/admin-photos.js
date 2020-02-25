@@ -23,15 +23,19 @@ export const AdminPhotos = () => {
   useEffect(() => {
     const setup = async () => {
       try {
-        await getPhotoGroups();
-        await getPhotos();
+        if (groups.length === 0) {
+          await getPhotoGroups();
+        }
+        if (photos.length === 0) {
+          await getPhotos();
+        }
       } catch (error) {
         console.error(error);
       }
     };
 
     setup();
-  }, [getPhotoGroups, getPhotos]);
+  }, [getPhotoGroups, getPhotos, groups, photos]);
 
   const onSubmit = async e => {
     if (!loading) {
@@ -77,6 +81,7 @@ export const AdminPhotos = () => {
 
   return (
     <div>
+      <h1>Photos</h1>
       {groups.map(g => {
         const groupPhotos = photos.filter(x => x.group === g.name);
 

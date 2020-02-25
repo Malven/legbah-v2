@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppState } from '../contexts/app/useAppState';
 import { useAppDispatch } from '../contexts/app/useAppDispatch';
 import { format } from 'date-fns';
+import draftToHtml from 'draftjs-to-html';
 
 export const AdminContacts = () => {
   const {
@@ -36,13 +37,16 @@ export const AdminContacts = () => {
               .
             </p>
             <hr className="my-2" />
-            <p>{contact.message}</p>
+            <div
+              dangerouslySetInnerHTML={{ __html: draftToHtml(contact.message) }}
+            />
+
             <div className="flex justify-end">
               <button
                 className={`border hover:border-legbah-gold hover:text-legbah-gold px-1 rounded ${
                   loading ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
-                onClick={() => deleteContact(contact.contactId)}
+                onClick={() => !loading && deleteContact(contact.contactId)}
               >
                 Delete message
               </button>

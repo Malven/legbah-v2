@@ -23,7 +23,8 @@ import {
   ADD_VIDEOS,
   GET_CONTACTS,
   ADD_CONTACT,
-  DELETE_CONTACT
+  DELETE_CONTACT,
+  UPDATE_NEWS
 } from './types';
 import axios from 'axios';
 
@@ -53,6 +54,20 @@ export const useAppDispatch = () => {
       try {
         await axios.delete(`/news/${newsId}`);
         dispatch({ type: DELETE_NEWS, payload: newsId });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const updateNews = React.useCallback(
+    async news => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        const result = await axios.put('/news', news);
+        dispatch({ type: UPDATE_NEWS, payload: result.data });
         dispatch({ type: CLEAR_ERRORS });
       } catch (error) {
         dispatch({ type: SET_ERRORS, payload: error.response.data });
@@ -322,6 +337,7 @@ export const useAppDispatch = () => {
     logout,
     getNews,
     postNews,
+    updateNews,
     deleteNews,
     getOneNews,
     clearErrors,
