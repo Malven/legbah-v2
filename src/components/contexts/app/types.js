@@ -28,3 +28,4 @@ export const ADD_VIDEOS = 'ADD_VIDEOS';
 export const GET_CONTACTS = 'GET_CONTACTS';
 export const ADD_CONTACT = 'ADD_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
+export const UPDATE_PHOTO = 'UPDATE_PHOTO';

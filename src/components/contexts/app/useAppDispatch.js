@@ -15,6 +15,7 @@ import {
   POST_PHOTO,
   GET_PHOTOS,
   DELETE_PHOTO,
+  UPDATE_PHOTO,
   ADD_PHOTO_GROUP,
   GET_PHOTO_GROUPS,
   GET_TOURS,
@@ -123,6 +124,20 @@ export const useAppDispatch = () => {
       try {
         await axios.delete(`/photos/${photoId}`);
         dispatch({ type: DELETE_PHOTO, payload: photoId });
+        dispatch({ type: CLEAR_ERRORS });
+      } catch (error) {
+        dispatch({ type: SET_ERRORS, payload: error.response.data });
+      }
+    },
+    [dispatch]
+  );
+
+  const publishPhoto = React.useCallback(
+    async photo => {
+      dispatch({ type: LOADING_DATA });
+      try {
+        const result = await axios.put(`/photos`, photo);
+        dispatch({ type: UPDATE_PHOTO, payload: result.data });
         dispatch({ type: CLEAR_ERRORS });
       } catch (error) {
         dispatch({ type: SET_ERRORS, payload: error.response.data });
@@ -343,6 +358,7 @@ export const useAppDispatch = () => {
     clearErrors,
     postPhoto,
     deletePhoto,
+    publishPhoto,
     getPhotos,
     getPhotoGroups,
     addPhotoGroup,

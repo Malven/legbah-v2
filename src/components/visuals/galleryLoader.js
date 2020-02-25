@@ -28,12 +28,17 @@ export const GalleryLoader = ({ label, type }) => {
           const groupPhotos = photos.filter(
             x => x.group === g.name && x.type.toLowerCase() === type
           );
-          const mapped = groupPhotos.map(photo => ({
-            src: photo.imageUrl,
-            width: Number.parseInt(photo.width),
-            height: Number.parseInt(photo.height),
-            title: photo.description ? photo.description : 'Missing description'
-          }));
+          const mapped = groupPhotos
+            .filter(x => x.published)
+            .map(photo => ({
+              src: photo.imageUrl,
+              width: Number.parseInt(photo.width),
+              height: Number.parseInt(photo.height),
+              title: photo.description
+                ? photo.description
+                : 'Missing description'
+            }));
+
           return mapped.length ? (
             <div key={g.name} className="mb-2">
               <h2>{g.name}</h2>
