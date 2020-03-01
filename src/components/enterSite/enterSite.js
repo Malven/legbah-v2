@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const EnterSite = () => (
   <div className="flex flex-col items-center">
-    <h1 className="font-display text-4xl hover:text-legbah-gold">
+    <h1 className="text-4xl font-display hover:text-legbah-gold">
       <Link href="/news">
         <a href="/news">Enter site</a>
       </Link>
@@ -16,8 +16,8 @@ export const EnterSite = () => (
     <Link href="/news">
       <a href="/news">
         <img
-          className="border border-black hover:border-legbah-gold"
-          src="/static/enter.png"
+          className="w-10/12 m-auto border border-black hover:border-legbah-gold"
+          src="/static/entry.jpg"
           alt="enter site"
         />
       </a>

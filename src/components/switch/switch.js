@@ -9,7 +9,7 @@ export const Switch = forwardRef(
     ref
   ) => {
     const [checked, setChecked] = useState(
-      defaultChecked ? defaultChecked : false
+      defaultChecked ? defaultChecked : currentValue
     );
 
     const handleOnChange = () => {
@@ -18,8 +18,8 @@ export const Switch = forwardRef(
     };
 
     return (
-      <>
-        <p>Published?</p>
+      <div className="mb-2">
+        <p className="text-white">Published?</p>
         <div className={'toggle-switch' + (small ? ' small-switch' : '')}>
           <input
             type="checkbox"
@@ -53,7 +53,7 @@ export const Switch = forwardRef(
             </label>
           ) : null}
         </div>
-      </>
+      </div>
     );
   }
 );

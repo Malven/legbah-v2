@@ -20,15 +20,15 @@ export const Layout = ({ children }) => {
         <MobileNavMenu />
       </div>
       <div className="container mx-auto">
-        <div className="legbah-container">
-          <div className="flex header hidden justify-between md:flex">
+        <div className="m-auto legbah-container">
+          <div className="flex justify-between hidden mt-10 header md:flex">
             <Header />
           </div>
           <div className="nav">
             <Navbar />
           </div>
-          <div className="main p-1">{children}</div>
-          <div className="tour p-1">
+          <div className="p-1 main">{children}</div>
+          <div className="p-1 tour">
             <TourDates />
           </div>
           <div className="social">
@@ -40,13 +40,13 @@ export const Layout = ({ children }) => {
             <p>Logged in as: {user.credentials.handle}</p>
             <div className="flex">
               <button
-                className="cursor-pointer mr-1 hover:text-legbah-gold font-body bg-black text-white font-normal mb-1"
+                className="mb-1 mr-1 font-normal text-white bg-black cursor-pointer hover:text-legbah-gold font-body"
                 onClick={handleLogout}
               >
                 Logout
               </button>
               {' - '}
-              <div className="hover:text-legbah-gold ml-1">
+              <div className="ml-1 hover:text-legbah-gold">
                 <Link href="/extras/admin">
                   <button>Admin</button>
                 </Link>

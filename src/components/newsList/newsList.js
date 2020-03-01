@@ -23,17 +23,19 @@ export const NewsList = () => {
   return (
     <div className="flex flex-col p-5">
       <h1 className="self-center font-display">News</h1>
-      {news.map((n, index) => (
-        <div key={n.newsId} className="flex flex-col">
-          <h2 className="self-center">
-            {format(new Date(n.createdAt), 'dd.MM.yyyy')}
-          </h2>
-          <div dangerouslySetInnerHTML={{ __html: draftToHtml(n.body) }} />
-          {index !== news.length - 1 && (
-            <hr className="my-4 border-legbah-gold" />
-          )}
-        </div>
-      ))}
+      {news
+        .filter(n => n.published)
+        .map((n, index) => (
+          <div key={n.newsId} className="flex flex-col">
+            <h2 className="self-center">
+              {format(new Date(n.createdAt), 'dd.MM.yyyy')}
+            </h2>
+            <div dangerouslySetInnerHTML={{ __html: draftToHtml(n.body) }} />
+            {index !== news.length - 1 && (
+              <hr className="my-4 border-legbah-gold" />
+            )}
+          </div>
+        ))}
     </div>
   );
 };
