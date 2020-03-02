@@ -23,11 +23,11 @@ export const AdminContacts = () => {
         contacts.map(contact => (
           <div
             key={contact.contactId}
-            className="border border-legbah-gold my-1 p-2 rounded"
+            className="p-2 my-1 border rounded border-legbah-gold"
           >
             <p>
               From{' '}
-              <span className="bg-gray-900 border border-gray-500 p-1 rounded text-gray-500">
+              <span className="p-1 text-gray-500 bg-gray-900 border border-gray-500 rounded">
                 {contact.email}
               </span>{' '}
               at{' '}

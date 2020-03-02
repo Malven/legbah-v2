@@ -17,9 +17,13 @@ export const VideoGallery = () => {
       if (videos.length > 0) {
         return;
       }
-
+      const instance = axios.create({
+        baseURL: '/',
+        timeout: 1000
+      });
+      delete instance.defaults.headers.common['Authorization'];
       //get channel
-      const response = await axios.get(
+      const response = await instance.get(
         'https://www.googleapis.com/youtube/v3/channels',
         {
           params: {
@@ -34,7 +38,7 @@ export const VideoGallery = () => {
       const result = await Promise.all(
         response.data.items.map(async item => {
           const playlistId = item.contentDetails.relatedPlaylists.uploads;
-          return await axios.get(
+          return await instance.get(
             'https://www.googleapis.com/youtube/v3/playlistItems',
             {
               params: {
@@ -65,7 +69,7 @@ export const VideoGallery = () => {
         {videos &&
           videos.map(video => (
             <ReactPlayer
-              className="border hover:border-legbah-gold m-2 rounded"
+              className="m-2 border rounded hover:border-legbah-gold"
               key={video}
               url={`https://www.youtube.com/watch?v=${video}`}
               width="300px"

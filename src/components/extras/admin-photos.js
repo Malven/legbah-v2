@@ -4,6 +4,7 @@ import { useAppDispatch } from '../contexts/app/useAppDispatch';
 import { useForm } from 'react-hook-form';
 import RPH from 'react-photo-gallery';
 import { SelectedImage } from './selectedPhoto';
+import { Switch } from '../switch/switch';
 
 export const AdminPhotos = () => {
   const {
@@ -50,6 +51,7 @@ export const AdminPhotos = () => {
         formData.append('width', img.width);
         formData.append('height', img.height);
         formData.append('description', e.photoDescription);
+        formData.append('published', e.photoDraft);
         await postPhoto(formData);
         reset();
       };
@@ -91,7 +93,8 @@ export const AdminPhotos = () => {
           type: photo.type,
           width: Number.parseInt(photo.width),
           height: Number.parseInt(photo.height),
-          title: photo.description ? photo.description : 'Missing description'
+          title: photo.description ? photo.description : 'Missing description',
+          published: photo.published
         }));
         return groupPhotos.length ? (
           <div key={g.name}>
@@ -180,6 +183,8 @@ export const AdminPhotos = () => {
           ref={register}
           className="h-12 mb-2 bg-gray-200 focus:shadow-focus hover:bg-white hover:border-gray-300 outline-none focus:bg-white appearance-none border border-transparent rounded w-full py-2 px-4 text-gray-700 leading-tight"
         />
+
+        <Switch id="photoDraft" name="photoDraft" ref={register} />
         <button
           className={`cursor-pointer border hover:border-legbah-gold hover:text-legbah-gold font-body bg-black text-white text-xl font-normal py-2 px-4 rounded mb-2 mt-1 ${
             loading ? 'opacity-50 cursor-not-allowed' : ''

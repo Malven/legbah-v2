@@ -23,7 +23,8 @@ import {
   ADD_VIDEOS,
   ADD_CONTACT,
   GET_CONTACTS,
-  DELETE_CONTACT
+  DELETE_CONTACT,
+  UPDATE_PHOTO
 } from './types';
 import { initialValue } from './appContext';
 
@@ -143,12 +144,22 @@ export const reducer = (state, action) => {
         }
       };
     }
+    case UPDATE_PHOTO: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          photos: updatePhotos(state, action.payload)
+        }
+      };
+    }
     case GET_PHOTO_GROUPS: {
       return {
         ...state,
         data: {
           ...state.data,
-          groups: action.payload
+          groups: action.payload,
+          loading: false
         }
       };
     }
@@ -236,5 +247,11 @@ export const reducer = (state, action) => {
 const updateNews = (state, news) => {
   const other = state.data.news.filter(x => x.newsId !== news.newsId);
   other.push(news);
+  return other.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
+};
+
+const updatePhotos = (state, photo) => {
+  const other = state.data.photos.filter(x => x.photoId !== photo.photoId);
+  other.push(photo);
   return other.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
 };
