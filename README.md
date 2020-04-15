@@ -3,4 +3,4 @@
 # LEGBAH
 [Official site](https://www.legbah.com)
 
-Firebase
+Firebase & NextJS
