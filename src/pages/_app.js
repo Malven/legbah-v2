@@ -4,9 +4,9 @@ import './styles.css';
 
 import { Layout } from '../components/layout/layout';
 import AppProvider from '../components/contexts/app/appContext';
-import { Configuration } from '../components/configuration/configuration';
+import { EnterSite } from '../components/enterSite/enterSite';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <React.Fragment>
       <Head>
@@ -21,13 +21,15 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <AppProvider>
-        <Configuration>
+      {router.pathname !== '/' ? (
+        <AppProvider>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </Configuration>
-      </AppProvider>
+        </AppProvider>
+      ) : (
+        <EnterSite />
+      )}
     </React.Fragment>
   );
 }
