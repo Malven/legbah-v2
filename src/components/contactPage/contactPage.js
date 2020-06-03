@@ -5,7 +5,7 @@ import { useAppDispatch } from '../contexts/app/useAppDispatch';
 import { Editor, EditorState, convertToRaw } from 'draft-js';
 import { useAppState } from '../contexts/app/useAppState';
 
-export const ContactPage = () => {
+export const ContactPage = ({ photos }) => {
   const { register, handleSubmit, errors, reset } = useForm();
   const { addContact } = useAppDispatch();
   const [showMessage, setShowMessage] = useState(false);
@@ -44,7 +44,7 @@ export const ContactPage = () => {
       <h1 className="font-display">Contact</h1>
       <div className="w-full">
         <h2 className="text-center">Press images</h2>
-        <GalleryLoader type="press" />
+        <GalleryLoader photos={photos} />
         <h2 className="mt-1">Get in contact</h2>
         <form
           className="flex flex-col text-black"

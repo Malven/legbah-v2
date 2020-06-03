@@ -1,4 +1,18 @@
 import React from 'react';
 import { ContactPage } from '../components/contactPage/contactPage';
+import { client } from '../prismic-configuration';
+import Prismic from 'prismic-javascript';
 
-export default () => <ContactPage />;
+const Contact = ({ photos }) => <ContactPage photos={photos} />;
+
+export async function getStaticProps() {
+  const photos = await client.query(
+    Prismic.Predicates.at('my.photos.photo_type', 'Press')
+  );
+
+  return {
+    props: { photos }
+  };
+}
+
+export default Contact;
