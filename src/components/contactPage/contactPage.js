@@ -67,7 +67,9 @@ export const ContactPage = ({ photos }) => {
           </label>
         </p>
         <p>
-          <button type="submit">Send</button>
+          <button onClick={e => e.preventDefault()} type="submit">
+            Send
+          </button>
         </p>
       </form>
       <h1 className="font-display">Contact</h1>
