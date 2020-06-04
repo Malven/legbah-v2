@@ -8,7 +8,7 @@ const Photos = ({ photos }) => {
 };
 
 export async function getStaticProps() {
-  const photos = await client.query(
+  const photos = await client(process.env.PRISMIC).query(
     Prismic.Predicates.at('my.photos.photo_type', 'Photos')
   );
 
