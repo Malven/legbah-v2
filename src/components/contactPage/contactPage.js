@@ -48,6 +48,10 @@ export const ContactPage = ({ photos }) => {
         <GalleryLoader photos={photos} />
         <h2 className="mt-1">Get in contact</h2>
         <form
+          name="contactPage"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
           className="flex flex-col text-black"
           onSubmit={handleSubmit(onHandleSubmit)}
         >
