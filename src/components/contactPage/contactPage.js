@@ -1,77 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { GalleryLoader } from '../visuals/galleryLoader';
-import { useAppDispatch } from '../contexts/app/useAppDispatch';
-import { Editor, EditorState, convertToRaw } from 'draft-js';
-import { useAppState } from '../contexts/app/useAppState';
 
 export const ContactPage = ({ photos }) => {
   const { register, handleSubmit, errors, reset } = useForm();
-  const { addContact } = useAppDispatch();
   const [showMessage, setShowMessage] = useState(false);
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
-  const {
-    data: { loading }
-  } = useAppState();
 
-  useEffect(() => {
-    let ignore = false;
-    if (showMessage) {
-      setTimeout(() => {
-        if (!ignore) {
+  // const onSubmit = data => {
+  //   if (loading) {
+  //     return;
+  //   }
+  //   setShowMessage(true);
+  //   const content = editorState.getCurrentContent();
+  //   data.message = convertToRaw(content);
+  //   setEditorState(EditorState.createEmpty());
+  //   addContact(data);
+  //   reset();
+  // };
+
+  const onHandleSubmit = data => {
+    fetch('/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...data })
+    })
+      .then(() => {
+        setShowMessage(true);
+        reset();
+        setTimeout(() => {
           setShowMessage(false);
-        }
-      }, 3000);
-    }
+        }, 2000);
+      })
+      .catch(error => alert(error));
+  };
 
-    return () => (ignore = true);
-  }, [showMessage]);
-
-  const onSubmit = data => {
-    if (loading) {
-      return;
-    }
-    setShowMessage(true);
-    const content = editorState.getCurrentContent();
-    data.message = convertToRaw(content);
-    setEditorState(EditorState.createEmpty());
-    addContact(data);
-    reset();
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
   };
 
   return (
     <div className="flex flex-col items-center p-5">
-      <form name="contact" method="POST" data-netlify="true">
-        <p>
-          <label>
-            Your Name: <input type="text" name="name" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your Email: <input type="email" name="email" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your Role:
-            <select name="role[]" multiple>
-              <option value="leader">Leader</option>
-              <option value="follower">Follower</option>
-            </select>
-          </label>
-        </p>
-        <p>
-          <label>
-            Message: <textarea name="message"></textarea>
-          </label>
-        </p>
-        <p>
-          <button onClick={e => e.preventDefault()} type="submit">
-            Send
-          </button>
-        </p>
-      </form>
       <h1 className="font-display">Contact</h1>
       <div className="w-full">
         <h2 className="text-center">Press images</h2>
@@ -79,8 +49,9 @@ export const ContactPage = ({ photos }) => {
         <h2 className="mt-1">Get in contact</h2>
         <form
           className="flex flex-col text-black"
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onHandleSubmit)}
         >
+          <input type="hidden" name="form-name" value="contact" />
           <label className="text-white" htmlFor="email">
             Email *
           </label>
@@ -109,15 +80,18 @@ export const ContactPage = ({ photos }) => {
           {errors.subject && (
             <span className="mb-2 text-red-500">This field is required</span>
           )}
-          <label className="text-white" htmlFor="subject">
+          <label className="text-white" htmlFor="message">
             Message
           </label>
-          <div
+          <textarea
+            id="message"
+            name="message"
             style={{ minHeight: '6em' }}
             className="w-full px-4 py-2 mb-2 leading-tight text-gray-700 bg-gray-200 border border-transparent rounded outline-none appearance-none focus:shadow-focus hover:bg-white hover:border-gray-300 focus:bg-white"
+            ref={register({ required: true })}
           >
-            <Editor editorState={editorState} onChange={setEditorState} />
-          </div>
+            {/* <Editor editorState={editorState} onChange={setEditorState} /> */}
+          </textarea>
 
           {showMessage && (
             <div className="text-xl text-white">Message sent</div>
