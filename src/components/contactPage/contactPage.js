@@ -51,7 +51,7 @@ export const ContactPage = ({ photos }) => {
           className="flex flex-col text-black"
           onSubmit={handleSubmit(onHandleSubmit)}
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contactPage" />
           <label className="text-white" htmlFor="email">
             Email *
           </label>
