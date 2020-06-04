@@ -3,4 +3,4 @@
 # LEGBAH
 [Official site](https://www.legbah.com)
 
-Firebase
+Runs on NextJS and Prismic.io and hosted on Netlify
