@@ -9,7 +9,9 @@ export const TourDates = () => {
   useEffect(() => {
     (async () => {
       if (!tours) {
-        const fetchedTours = await getTours();
+        const fetchedTours = await getTours(
+          'https://malven-prismic.prismic.io/api/v2'
+        );
         setTours(fetchedTours);
       }
     })();

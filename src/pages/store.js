@@ -6,7 +6,7 @@ import Prismic from 'prismic-javascript';
 const Store = ({ articles }) => <WebStore articles={articles} />;
 
 export async function getStaticProps() {
-  const articles = await client.query(
+  const articles = await client(process.env.PRISMIC).query(
     Prismic.Predicates.at('document.type', 'article')
   );
 

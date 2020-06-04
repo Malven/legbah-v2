@@ -6,7 +6,7 @@ import Prismic from 'prismic-javascript';
 
 // Configure your site's access point here
 
-export const apiEndpoint = 'https://malven-prismic.prismic.io/api/v2';
+// export const apiEndpoint = process.env.PRISMIC;
 
 // -- Access Token if the repository is not public
 
@@ -42,9 +42,13 @@ export const hrefResolver = doc => {
 
 // Connects to the given repository to facilitate data queries
 
-export const client = Prismic.client(apiEndpoint, { accessToken });
+export const client = apiEndpoint =>
+  Prismic.client(apiEndpoint, { accessToken });
 
-export const getTours = async () =>
-  await client.query(Prismic.Predicates.at('document.type', 'tours'), {
-    orderings: '[my.tours.date desc]'
-  });
+export const getTours = async apiEndpoint =>
+  await client(apiEndpoint).query(
+    Prismic.Predicates.at('document.type', 'tours'),
+    {
+      orderings: '[my.tours.date desc]'
+    }
+  );

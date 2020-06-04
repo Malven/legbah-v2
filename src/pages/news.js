@@ -8,7 +8,7 @@ const News = ({ news }) => {
 };
 
 export async function getStaticProps() {
-  const news = await client.query(
+  const news = await client(process.env.PRISMIC).query(
     Prismic.Predicates.at('document.type', 'news'),
     { orderings: '[my.news.date desc]' }
   );
