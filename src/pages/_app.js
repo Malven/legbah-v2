@@ -3,7 +3,6 @@ import React from 'react';
 import './styles.css';
 
 import { Layout } from '../components/layout/layout';
-import AppProvider from '../components/contexts/app/appContext';
 import { EnterSite } from '../components/enterSite/enterSite';
 
 function MyApp({ Component, pageProps, router }) {
@@ -22,11 +21,9 @@ function MyApp({ Component, pageProps, router }) {
         />
       </Head>
       {router.pathname !== '/' ? (
-        <AppProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </AppProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       ) : (
         <EnterSite />
       )}

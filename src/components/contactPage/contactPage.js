@@ -5,18 +5,7 @@ import { GalleryLoader } from '../visuals/galleryLoader';
 export const ContactPage = ({ photos }) => {
   const { register, handleSubmit, errors, reset } = useForm();
   const [showMessage, setShowMessage] = useState(false);
-
-  // const onSubmit = data => {
-  //   if (loading) {
-  //     return;
-  //   }
-  //   setShowMessage(true);
-  //   const content = editorState.getCurrentContent();
-  //   data.message = convertToRaw(content);
-  //   setEditorState(EditorState.createEmpty());
-  //   addContact(data);
-  //   reset();
-  // };
+  const [submitError, setSubmitError] = useState(null);
 
   const onHandleSubmit = data => {
     fetch('/contact', {
@@ -31,7 +20,7 @@ export const ContactPage = ({ photos }) => {
           setShowMessage(false);
         }, 2000);
       })
-      .catch(error => alert(error));
+      .catch(error => setSubmitError(error));
   };
 
   const encode = data => {
@@ -64,10 +53,14 @@ export const ContactPage = ({ photos }) => {
             className="w-full px-4 py-2 mb-2 leading-tight text-gray-700 bg-gray-200 border border-transparent rounded outline-none appearance-none focus:shadow-focus hover:bg-white hover:border-gray-300 focus:bg-white"
             name="email"
             ref={register({
+              required: true,
               pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             })}
           />
-          {errors.email && (
+          {errors.email && errors.email.type === 'required' && (
+            <span className="mb-2 text-red-500">This field is required</span>
+          )}
+          {errors.email && errors.email.type === 'pattern' && (
             <span className="mb-2 text-red-500">
               This field must be a valid email
             </span>
@@ -93,12 +86,21 @@ export const ContactPage = ({ photos }) => {
             style={{ minHeight: '6em' }}
             className="w-full px-4 py-2 mb-2 leading-tight text-gray-700 bg-gray-200 border border-transparent rounded outline-none appearance-none focus:shadow-focus hover:bg-white hover:border-gray-300 focus:bg-white"
             ref={register({ required: true })}
-          >
-            {/* <Editor editorState={editorState} onChange={setEditorState} /> */}
-          </textarea>
+          ></textarea>
+          {errors.message && (
+            <span className="mb-2 text-red-500">This field is required</span>
+          )}
 
           {showMessage && (
-            <div className="text-xl text-white">Message sent</div>
+            <div className="p-1 mb-1 text-xl text-white bg-green-700 border border-green-800 rounded">
+              Message sent
+            </div>
+          )}
+          {submitError && (
+            <div className="p-1 mb-1 text-xl text-white bg-red-700 border border-red-800 rounded">
+              <p>Message failed to send</p>
+              <p>{JSON.stringify(submitError, null, 2)}</p>
+            </div>
           )}
           <input
             type="submit"
