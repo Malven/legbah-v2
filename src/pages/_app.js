@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps, router }) {
     <React.Fragment>
       <Head>
         <title>LEGBAH: Official site</title>
-        <meta name="description">Official page for the band Legbah</meta>
+        <meta name="description" content="Official page for the band Legbah" />
         <link rel="shortcut icon" href="/static/legbah-favicon.ico" />
         <link
           href="https://fonts.googleapis.com/css?family=UnifrakturCook:700&display=swap"
