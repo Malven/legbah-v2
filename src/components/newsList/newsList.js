@@ -1,45 +1,30 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { format } from 'date-fns';
-import { useAppState } from '../contexts/app/useAppState';
-import { useAppDispatch } from '../contexts/app/useAppDispatch';
-import draftToHtml from 'draftjs-to-html';
+import { RichText, Date } from 'prismic-reactjs';
+import { linkResolver } from '../../prismic-configuration';
 
-export const NewsList = () => {
-  const { getNews } = useAppDispatch();
-  const {
-    data: { news }
-  } = useAppState();
-
-  useEffect(() => {
-    const setup = async () => {
-      if (!news.length) {
-        getNews();
-      }
-    };
-
-    setup();
-  }, [getNews, news.length]);
-
+export const NewsList = ({ news }) => {
   return (
     <div className="flex flex-col p-5">
       <h1 className="self-center font-display">News</h1>
-      {news
-        .filter(n => n.published)
-        .map((n, index) => (
-          <div key={n.newsId} className="flex flex-col">
-            <h2 className="self-center">
-              {format(new Date(n.createdAt), 'dd.MM.yyyy')}
-            </h2>
-            <div dangerouslySetInnerHTML={{ __html: draftToHtml(n.body) }} />
-            {index !== news.length - 1 && (
-              <hr className="my-4 border-legbah-gold" />
-            )}
+      {news?.results.map((n, index) => (
+        <div key={n.uid} className="flex flex-col">
+          <h3 className="self-center">
+            {format(Date(n.data.date), 'dd.MM.yyyy')}
+          </h3>
+
+          <div className="text-center text-legbah-gold">
+            <RichText render={n.data.title} linkResolver={linkResolver} />
           </div>
-        ))}
+          <div className="flex flex-col items-center text-center">
+            <RichText render={n.data.content} linkResolver={linkResolver} />
+          </div>
+
+          {news.results.length > 1 && index !== news.results.length - 1 && (
+            <hr className="my-4 border-legbah-gold" />
+          )}
+        </div>
+      ))}
     </div>
   );
-};
-
-NewsList.defaultProps = {
-  news: []
 };
