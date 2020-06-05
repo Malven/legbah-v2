@@ -62,7 +62,7 @@ h3 {
 .article-grid {
 	display: grid;
 	grid-template-columns: repeat(1, 340px);
-	grid-template-rows: 390px;
+	grid-template-rows: auto;
 	grid-column-gap: 1em;
 	grid-row-gap: 1em;
 }
