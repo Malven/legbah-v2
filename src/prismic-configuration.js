@@ -44,11 +44,3 @@ export const hrefResolver = doc => {
 
 export const client = apiEndpoint =>
   Prismic.client(apiEndpoint, { accessToken });
-
-export const getTours = async apiEndpoint =>
-  await client(apiEndpoint).query(
-    Prismic.Predicates.at('document.type', 'tours'),
-    {
-      orderings: '[my.tours.date desc]'
-    }
-  );

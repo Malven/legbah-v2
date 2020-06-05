@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { Date } from 'prismic-reactjs';
-import { getTours } from '../../prismic-configuration';
+import { client } from '../../prismic-configuration';
+import Prismic from 'prismic-javascript';
 
 export const TourDates = () => {
   const [tours, setTours] = useState();
@@ -9,9 +10,11 @@ export const TourDates = () => {
   useEffect(() => {
     (async () => {
       if (!tours) {
-        const fetchedTours = await getTours(
+        const fetchedTours = await client(
           'https://malven-prismic.prismic.io/api/v2'
-        );
+        ).query(Prismic.Predicates.at('document.type', 'tours'), {
+          orderings: '[my.tours.date desc]'
+        });
         setTours(fetchedTours);
       }
     })();
