@@ -38,6 +38,7 @@ export const NavMenu = () => {
       >
         <button onClick={() => setSubMenuOpen(state => !state)}>Visuals</button>
         <div
+          style={{ left: '-2px' }}
           className={`${
             subMenuOpen
               ? 'absolute bg-black border flex flex-col items-end px-16 text-white w-full'

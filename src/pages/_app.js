@@ -20,6 +20,13 @@ function MyApp({ Component, pageProps, router }) {
           href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans&display=swap"
           rel="stylesheet"
         />
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="94fc99db-7989-4deb-a786-3414ef131190"
+          data-blockingmode="auto"
+          type="text/javascript"
+        ></script>
       </Head>
       {router.pathname !== '/' ? (
         <Layout>
