@@ -36,6 +36,9 @@ export const TourDates = () => {
             <span className="ml-1">{tour.data.country}</span>
           </li>
         ))}
+        {tours?.results.length < 1 && (
+          <li className="flex justify-center">No dates announced yet.</li>
+        )}
       </ul>
     </div>
   );
