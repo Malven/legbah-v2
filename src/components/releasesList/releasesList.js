@@ -6,13 +6,13 @@ export const ReleasesList = () => {
   return (
     <div className="flex flex-col p-5">
       <h1 className="self-center font-display">Releases</h1>
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col justify-center mt-12 md:flex-row">
         <img
-          className="self-center object-contain md:w-1/2 md:mr-1"
+          className="self-center object-contain w-1/4 mr-4"
           src="/static/legbah.jpeg"
           alt="album cover of limited edition"
         />
-        <div className="flex flex-col items-center self-center w-full md:items-start md:w-1/2">
+        <div className="flex flex-col items-center self-center md:items-start">
           <h2>Legbah (2017)</h2>
           <ul className="text-legbah-gold">
             <li>

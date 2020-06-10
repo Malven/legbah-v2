@@ -1,5 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
+import { RichText } from 'prismic-reactjs';
+import { linkResolver } from '../../prismic-configuration';
 
 const Article = ({ article }) => {
   return (
@@ -19,8 +20,8 @@ const Article = ({ article }) => {
         </li>
         <li className="p-1 border border-t-0 border-l-0 border-r-0 border-legbah-gray">
           <ul>
-            {article.sizes?.map(s => (
-              <li className="inline-block">
+            {article.sizes?.map((s, index) => (
+              <li key={`article-${index}`} className="inline-block">
                 {s.in_stock ? (
                   <span className="mr-1 text-green-500">{s.size}</span>
                 ) : (
@@ -39,23 +40,17 @@ const Article = ({ article }) => {
   );
 };
 
-export const WebStore = ({ articles }) => {
+export const WebStore = ({ articles, content }) => {
   return (
     <div className="flex flex-col items-center p-5">
       <h1 className="self-center font-display">Store</h1>
-      <p className="mb-1">
-        <Link href="/contact">
-          <a className="text-legbah-gold hover:text-white" href="/contact">
-            Contact
-          </a>
-        </Link>{' '}
-        us with what kind of merchandise you want together with size and amount
-        and we'll email you back with payment details.
-      </p>
+      <div className="mb-1">
+        <RichText render={content?.data.content} linkResolver={linkResolver} />
+      </div>
       <div className="article-grid">
         {articles?.results.map(article => (
-          <div>
-            <Article key={article.uid} article={article.data} />
+          <div key={article.uid}>
+            <Article article={article.data} />
           </div>
         ))}
       </div>

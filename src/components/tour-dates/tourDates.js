@@ -13,7 +13,7 @@ export const TourDates = () => {
         const fetchedTours = await client(
           'https://malven-prismic.prismic.io/api/v2'
         ).query(Prismic.Predicates.at('document.type', 'tours'), {
-          orderings: '[my.tours.date desc]'
+          orderings: '[my.tours.date]'
         });
         setTours(fetchedTours);
       }
