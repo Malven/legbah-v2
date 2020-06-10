@@ -25,7 +25,7 @@ export const Layout = ({ children }) => {
           </div>
           <div className="social">
             <Socials />
-            <div className="flex flex-col justify-center md:flex-row">
+            <div className="flex flex-col justify-center mt-8 mb-8 md:flex-row">
               <form
                 className="flex flex-col self-center justify-center w-2/4 md:flex-row md:items-center"
                 method="POST"
