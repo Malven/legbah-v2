@@ -27,7 +27,7 @@ export const Layout = ({ children }) => {
             <Socials />
             <div className="flex flex-col justify-center md:flex-row">
               <form
-                className="flex flex-col self-center w-2/4 md:flex-row md:items-center"
+                className="flex flex-col self-center justify-center w-2/4 md:flex-row md:items-center"
                 method="POST"
                 action="https://gansub.com/s/LOPbuRB3Q8/"
               >
