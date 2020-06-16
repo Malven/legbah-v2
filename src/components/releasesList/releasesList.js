@@ -58,11 +58,11 @@ export const ReleasesList = () => {
               />
             </li>
           </ul>
-          <h2>
-            <span>Order from our</span>{' '}
+          <h2 className="mt-4 md:ml-1">
+            <span>Order </span>
             <Link href="/store">
-              <a className="text-legbah-gold hover:text-white" href="/store">
-                store
+              <a className="text-red-600 hover:text-white" href="/store">
+                Gatefold LP
               </a>
             </Link>
           </h2>
@@ -71,3 +71,8 @@ export const ReleasesList = () => {
     </div>
   );
 };
+
+/**
+ * Göra under Releases: Order from our store bara skriva Order: Gatefold LP och göra Gatefold LP texten röd samt flytta ner den lite från det andra och fram & länka.
+ *
+ */
