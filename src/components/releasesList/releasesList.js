@@ -71,8 +71,3 @@ export const ReleasesList = () => {
     </div>
   );
 };
-
-/**
- * Göra under Releases: Order from our store bara skriva Order: Gatefold LP och göra Gatefold LP texten röd samt flytta ner den lite från det andra och fram & länka.
- *
- */
