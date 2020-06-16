@@ -58,7 +58,7 @@ export const ReleasesList = () => {
               />
             </li>
           </ul>
-          <h2 className="mt-4 md:ml-6">
+          <h2 className="mt-4 md:ml-1">
             <span>Order </span>
             <Link href="/store">
               <a className="text-red-600 hover:text-white" href="/store">
