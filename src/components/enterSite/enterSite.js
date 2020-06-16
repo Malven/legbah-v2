@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const EnterSite = () => (
   <div className="flex flex-col items-center">
-    <h1 className="text-4xl uppercase font-display hover:text-legbah-gold">
+    <h1 className="text-4xl uppercase font-body hover:text-legbah-gold">
       <Link href="/news">
         <a href="/news">Enter site</a>
       </Link>
