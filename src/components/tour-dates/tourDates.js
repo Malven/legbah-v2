@@ -11,7 +11,7 @@ export const TourDates = () => {
     (async () => {
       if (!tours) {
         const fetchedTours = await client(
-          'https://malven-prismic.prismic.io/api/v2'
+          process.env.NEXT_PUBLIC_PRISMIC
         ).query(Prismic.Predicates.at('document.type', 'tours'), {
           orderings: '[my.tours.date]'
         });
