@@ -29,7 +29,7 @@ export const Layout = ({ children }) => {
               <form
                 className="flex flex-col self-center justify-center w-2/4 md:flex-row md:items-center"
                 method="POST"
-                action="https://gansub.com/s/LOPbuRB3Q8/"
+                action="https://gansub.com/s/OlCR6KfanA/"
               >
                 <label
                   className="m-1 text-center md:text-right"
