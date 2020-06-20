@@ -5,7 +5,7 @@ import { linkResolver } from '../../prismic-configuration';
 const Article = ({ article }) => {
   return (
     <div className="flex flex-col h-full border border-gray-600 hover:border-legbah-gold">
-      <div className="w-full bg-yellow-500 border border-t-0 border-l-0 border-r-0 border-gray-600 md:h-auto">
+      <div className="w-full border border-t-0 border-l-0 border-r-0 border-gray-600 md:h-auto">
         <img
           height={article.image.dimensions.height}
           width={article.image.dimensions.width}
