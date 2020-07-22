@@ -34,7 +34,7 @@ const Article = ({ article }) => {
         <li className="p-1 border border-t-0 border-l-0 border-r-0 border-legbah-gray">
           Art nr: {article.article_number}
         </li>
-        <li className="p-1">{article.cost} kr</li>
+        <li className="p-1">{article.cost} SEK</li>
       </ul>
     </div>
   );
