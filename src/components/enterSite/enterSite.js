@@ -17,7 +17,7 @@ export const EnterSite = () => (
       <a href="/news">
         <img
           style={{ maxHeight: 'calc(100vh - 90px)' }}
-          className="w-10/12 m-auto border border-black hover:border-legbah-gold"
+          className="object-contain w-10/12 m-auto border border-black hover:border-legbah-gold"
           src="/static/entry.jpg"
           alt="enter site"
         />
