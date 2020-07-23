@@ -18,9 +18,9 @@ const Article = ({ article }) => {
         <li className="p-1 border border-t-0 border-l-0 border-r-0 border-legbah-gray">
           {article.name}
         </li>
-        <li className="p-1 border border-t-0 border-l-0 border-r-0 border-legbah-gray">
-          <ul>
-            {article.sizes?.map((s, index) => (
+        {article.sizes?.map((s, index) => (
+          <li className="p-1 border border-t-0 border-l-0 border-r-0 border-legbah-gray">
+            <ul>
               <li key={`article-${index}`} className="inline-block">
                 {s.in_stock ? (
                   <span className="mr-1 text-green-500">{s.size}</span>
@@ -28,9 +28,9 @@ const Article = ({ article }) => {
                   <span className="mr-1 text-red-500">{s.size}</span>
                 )}
               </li>
-            ))}
-          </ul>
-        </li>
+            </ul>
+          </li>
+        ))}
         <li className="p-1 border border-t-0 border-l-0 border-r-0 border-legbah-gray">
           Art nr: {article.article_number}
         </li>
