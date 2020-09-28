@@ -1,5 +1,5 @@
-import React from 'react';
 import { RichText } from 'prismic-reactjs';
+import React, { useState } from 'react';
 import { linkResolver } from '../../prismic-configuration';
 
 const Article = ({ article }) => {
@@ -14,7 +14,7 @@ const Article = ({ article }) => {
           className="w-full h-full"
         />
       </div>
-      <ul className="w-full bg-gray-800">
+      <ul className="w-full">
         <li className="p-1 border border-t-0 border-l-0 border-r-0 border-legbah-gray">
           {article.name}
         </li>
@@ -40,20 +40,87 @@ const Article = ({ article }) => {
   );
 };
 
+const compare = (a, b, reverse) => {
+  if (reverse) {
+    return b - a;
+  }
+  return a - b;
+};
+
 export const WebStore = ({ articles, content }) => {
+  const [sortedArticles, setSortedArticles] = useState(() =>
+    articles?.results.sort((a, b) => compare(a.data.cost, b.data.cost, true))
+  );
+  const [highestFirst, setHighestFirst] = useState(false);
+
+  const onSort = () => {
+    const arts = articles?.results.sort((a, b) =>
+      compare(a.data.cost, b.data.cost, highestFirst)
+    );
+
+    setSortedArticles(arts);
+    setHighestFirst(highest => !highest);
+  };
+
   return (
     <div className="flex flex-col items-center p-5">
       <h1 className="self-center font-display">Store</h1>
       <div className="mb-1">
         <RichText render={content?.data.content} linkResolver={linkResolver} />
       </div>
+      <div>
+        <button
+          className="flex items-baseline p-1 m-2 border rounded border-legbah-gray hover:border-legbah-gold"
+          onClick={onSort}
+        >
+          <span>Sort by price</span>
+          <i className="ml-1">
+            <SortIcon size={12} highestFirst={highestFirst} />
+          </i>
+        </button>
+      </div>
       <div className="article-grid">
-        {articles?.results.map(article => (
+        {sortedArticles?.map(article => (
           <div key={article.uid}>
             <Article article={article.data} />
           </div>
         ))}
       </div>
     </div>
+  );
+};
+
+const SortIcon = ({ size, highestFirst }) => {
+  let rects = [
+    <rect
+      key="rect1"
+      x="0"
+      y={`${highestFirst ? '64' : '277.333'}`}
+      width="128"
+      height="42.667"
+      fill="#fff"
+    />,
+    <rect
+      key="rect2"
+      x="0"
+      y="170.667"
+      width="256"
+      height="42.667"
+      fill="#fff"
+    />,
+    <rect
+      key="rect3"
+      x="0"
+      y={`${highestFirst ? '277.333' : '64'}`}
+      width="384"
+      height="42.667"
+      fill="#fff"
+    />
+  ];
+
+  return (
+    <svg viewBox="0 0 384 384" width={size} height={size}>
+      <g>{rects}</g>
+    </svg>
   );
 };

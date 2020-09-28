@@ -1,7 +1,7 @@
+import Prismic from 'prismic-javascript';
 import React from 'react';
 import { WebStore } from '../components/webstore/webstore';
 import { client } from '../prismic-configuration';
-import Prismic from 'prismic-javascript';
 
 const Store = ({ articles, webstoreContent }) => (
   <WebStore articles={articles} content={webstoreContent} />
