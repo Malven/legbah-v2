@@ -1,5 +1,5 @@
-import React from 'react';
 import Link from 'next/link';
+import React from 'react';
 
 export const EnterSite = () => (
   <div className="flex flex-col items-center">
@@ -8,11 +8,6 @@ export const EnterSite = () => (
         <a href="/news">Enter site</a>
       </Link>
     </h1>
-    <h2 className="text-2xl hover:text-legbah-gold">
-      <Link href="/news">
-        <a href="/news">www.legbah.com</a>
-      </Link>
-    </h2>
     <Link href="/news">
       <a href="/news">
         <img
