@@ -7,7 +7,7 @@ const Artwork = ({ photos }) => {
   return <GalleryLoader label="Artwork" photos={photos} />;
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const photos = await client(process.env.PRISMIC).query(
     Prismic.Predicates.at('my.photos.photo_type', 'Artwork')
   );
