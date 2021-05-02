@@ -19,7 +19,10 @@ const Article = ({ article }) => {
           {article.name}
         </li>
         {article.sizes?.map((s, index) => (
-          <li className="p-1 border border-t-0 border-l-0 border-r-0 border-legbah-gray">
+          <li
+            key={`${s}-${index}`}
+            className="p-1 border border-t-0 border-l-0 border-r-0 border-legbah-gray"
+          >
             <ul>
               <li key={`article-${index}`} className="inline-block">
                 {s.in_stock ? (

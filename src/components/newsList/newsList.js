@@ -1,6 +1,6 @@
-import React from 'react';
 import { format } from 'date-fns';
-import { RichText, Date } from 'prismic-reactjs';
+import { Date, RichText } from 'prismic-reactjs';
+import React from 'react';
 import { linkResolver } from '../../prismic-configuration';
 
 export const NewsList = ({ news }) => {
@@ -9,9 +9,9 @@ export const NewsList = ({ news }) => {
       <h1 className="self-center font-display">News</h1>
       {news?.results.map((n, index) => (
         <div key={n.uid} className="flex flex-col">
-          <h3 className="self-center">
+          <h2 className="self-center">
             {format(Date(n.data.date), 'dd.MM.yyyy')}
-          </h3>
+          </h2>
 
           <div className="text-center text-legbah-gold">
             <RichText render={n.data.title} linkResolver={linkResolver} />

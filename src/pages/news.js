@@ -1,7 +1,7 @@
+import Prismic from 'prismic-javascript';
 import React from 'react';
 import { NewsList } from '../components/newsList/newsList';
 import { client } from '../prismic-configuration';
-import Prismic from 'prismic-javascript';
 
 const News = ({ news }) => {
   return <NewsList news={news} />;
