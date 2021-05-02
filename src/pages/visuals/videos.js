@@ -1,6 +1,5 @@
 import React from 'react';
 import { VideoGallery } from '../../components/visuals/videos';
-const { google } = require('googleapis');
 
 const Videos = ({ videos }) => <VideoGallery videos={videos} />;
 
