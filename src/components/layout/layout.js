@@ -1,9 +1,9 @@
 import React from 'react';
-import { Navbar } from '../nav/navbar';
 import { Header } from '../header/header';
+import { MobileNavMenu } from '../nav/mobileNavMenu';
+import { Navbar } from '../nav/navbar';
 import { Socials } from '../socials/socials';
 import { TourDates } from '../tour-dates/tourDates';
-import { MobileNavMenu } from '../nav/mobileNavMenu';
 
 export const Layout = ({ children }) => {
   return (
@@ -13,7 +13,7 @@ export const Layout = ({ children }) => {
       </div>
       <div className="container mx-auto">
         <div className="m-auto legbah-container">
-          <div className="flex justify-between hidden mt-10 header md:flex">
+          <div className="justify-between hidden mt-10 header md:flex">
             <Header />
           </div>
           <div className="nav">
