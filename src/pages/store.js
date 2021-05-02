@@ -7,7 +7,7 @@ const Store = ({ articles, webstoreContent }) => (
   <WebStore articles={articles} content={webstoreContent} />
 );
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const articles = await client(process.env.PRISMIC).query(
     Prismic.Predicates.at('document.type', 'article')
   );

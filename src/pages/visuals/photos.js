@@ -1,13 +1,13 @@
+import Prismic from 'prismic-javascript';
 import React from 'react';
 import { GalleryLoader } from '../../components/visuals/galleryLoader';
 import { client } from '../../prismic-configuration';
-import Prismic from 'prismic-javascript';
 
 const Photos = ({ photos }) => {
   return <GalleryLoader label="Photos" photos={photos} />;
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const photos = await client(process.env.PRISMIC).query(
     Prismic.Predicates.at('my.photos.photo_type', 'Photos')
   );
