@@ -13,9 +13,9 @@ export const EnterSite = () => (
         />
       </a>
     </Link>
-    <h1 className="text-4xl lowercase font-body entry hover:text-legbah-gold -mt-20">
+    <h1 className="-mt-20 text-4xl font-body entry hover:text-legbah-gold">
       <Link href="/news">
-        <a href="/news">Enter site</a>
+        <a href="/news">Enter Site</a>
       </Link>
     </h1>
   </div>
