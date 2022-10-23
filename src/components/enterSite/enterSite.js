@@ -3,11 +3,6 @@ import React from 'react';
 
 export const EnterSite = () => (
   <div className="flex flex-col items-center">
-    <h1 className="text-4xl lowercase font-body hover:text-legbah-gold">
-      <Link href="/news">
-        <a href="/news">Enter site</a>
-      </Link>
-    </h1>
     <Link href="/news">
       <a href="/news">
         <img
@@ -18,5 +13,10 @@ export const EnterSite = () => (
         />
       </a>
     </Link>
+    <h1 className="text-4xl lowercase font-body entry hover:text-legbah-gold -mt-20">
+      <Link href="/news">
+        <a href="/news">Enter site</a>
+      </Link>
+    </h1>
   </div>
 );

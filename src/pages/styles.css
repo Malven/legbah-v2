@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Old English Five';
+  src: url('/static/OldEnglishFive.ttf') format('truetype');
+}
+
+.entry {
+  font-family: 'Old English Five';
+}
+
 body {
   background-color: black;
   margin: 0;
@@ -18,24 +28,34 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(74px, auto) 1fr auto 278px;
-  grid-template-areas: "nav" "main" "tour" "social";
+  grid-template-areas: 'nav' 'main' 'tour' 'social';
 }
-.header { grid-area: header; }
+.header {
+  grid-area: header;
+}
 
-.nav { grid-area: nav; }
+.nav {
+  grid-area: nav;
+}
 
-.main { grid-area: main; }
+.main {
+  grid-area: main;
+}
 
-.tour { grid-area: tour; }
+.tour {
+  grid-area: tour;
+}
 
-.social { grid-area: social; }
+.social {
+  grid-area: social;
+}
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .legbah-container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 250px minmax(74px, auto) 1fr auto 200px;
-    grid-template-areas: "header" "nav" "main" "tour" "social";
+    grid-template-areas: 'header' 'nav' 'main' 'tour' 'social';
   }
 }
 
@@ -50,31 +70,29 @@ h3 {
 }
 
 .article-grid {
-	display: grid;
-	grid-template-columns: repeat(1, 340px);
-	grid-template-rows: auto;
-	grid-column-gap: 1em;
-	grid-row-gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(1, 340px);
+  grid-template-rows: auto;
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
 }
 
 @media (min-width: 768px) {
-	.article-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 340px);
-		grid-template-rows: auto;
-		grid-column-gap: 1em;
-		grid-row-gap: 1em;
-
-	}
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 340px);
+    grid-template-rows: auto;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+  }
 }
 
 @media (min-width: 1180px) {
-	.article-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 340px);
-		grid-template-rows: auto;
-		grid-column-gap: 1em;
-		grid-row-gap: 1em;
-
-	}
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 340px);
+    grid-template-rows: auto;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+  }
 }

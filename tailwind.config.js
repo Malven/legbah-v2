@@ -9,7 +9,7 @@ module.exports = {
       sans: ['-apple-system', 'BlinkMacSystemFont'],
       serif: ['Georgia', 'Cambria'],
       mono: ['SFMono-Regular', 'Menlo'],
-      display: ['UnifrakturCook'],
+      display: ['Old English Five'],
       body: ['Crimson Text']
     },
     boxShadow: {
