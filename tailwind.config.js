@@ -30,6 +30,7 @@ module.exports = {
     extend: {
       colors: {
         'legbah-gold': '#715526',
+        'legbah-grey': '#3e4042',
         'legbah-gray': 'rgba(255, 255, 255, 0.5)'
       }
     }
