@@ -9,7 +9,7 @@ module.exports = {
       sans: ['-apple-system', 'BlinkMacSystemFont'],
       serif: ['Georgia', 'Cambria'],
       mono: ['SFMono-Regular', 'Menlo'],
-      display: ['UnifrakturCook'],
+      display: ['Old English Five'],
       body: ['Crimson Text']
     },
     boxShadow: {
@@ -30,6 +30,7 @@ module.exports = {
     extend: {
       colors: {
         'legbah-gold': '#715526',
+        'legbah-grey': '#66696c',
         'legbah-gray': 'rgba(255, 255, 255, 0.5)'
       }
     }

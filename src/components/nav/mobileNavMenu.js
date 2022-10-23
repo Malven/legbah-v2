@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
 export const MobileNavMenu = () => {
   const router = useRouter();
@@ -26,7 +26,7 @@ export const MobileNavMenu = () => {
             </span>
           </Link>
           <button
-            className="outline-none font-display border-solid border border-white hover:border-legbah-gold px-2 text-white bg-black hover:text-legbah-gold"
+            className="px-2 bg-black border border-white border-solid outline-none text-legbah-grey font-display hover:border-legbah-gold hover:text-legbah-gold"
             onClick={() => setOpen(o => !o)}
           >
             Menu
@@ -42,7 +42,9 @@ export const MobileNavMenu = () => {
         >
           <div
             className={`text-2xl font-display hover:text-legbah-gold px-1 ${
-              router.pathname === '/news' ? 'text-legbah-gold' : ''
+              router.pathname === '/news'
+                ? 'text-legbah-gold'
+                : 'text-legbah-grey'
             }`}
           >
             <Link href="/news">
@@ -51,7 +53,9 @@ export const MobileNavMenu = () => {
           </div>
           <div
             className={`text-2xl font-display hover:text-legbah-gold px-1 ${
-              router.pathname === '/releases' ? 'text-legbah-gold' : ''
+              router.pathname === '/releases'
+                ? 'text-legbah-gold'
+                : 'text-legbah-grey'
             }`}
           >
             <Link href="/releases">
@@ -60,7 +64,9 @@ export const MobileNavMenu = () => {
           </div>
           <div
             className={`flex flex-col font-display hover:text-legbah-gold items-end px-1 text-2xl ${
-              routes.includes(router.pathname) ? 'text-legbah-gold' : ''
+              routes.includes(router.pathname)
+                ? 'text-legbah-gold'
+                : 'text-legbah-grey'
             }`}
           >
             <button onClick={() => setSubMenuOpen(state => !state)}>
@@ -113,7 +119,9 @@ export const MobileNavMenu = () => {
           </div>
           <div
             className={`text-2xl font-display hover:text-legbah-gold  px-1 ${
-              router.pathname === '/store' ? 'text-legbah-gold' : ''
+              router.pathname === '/store'
+                ? 'text-legbah-gold'
+                : 'text-legbah-grey'
             }`}
           >
             <Link href="/store">
@@ -122,7 +130,9 @@ export const MobileNavMenu = () => {
           </div>
           <div
             className={`text-2xl font-display hover:text-legbah-gold px-1 ${
-              router.pathname === '/contact' ? 'text-legbah-gold' : ''
+              router.pathname === '/contact'
+                ? 'text-legbah-gold'
+                : 'text-legbah-grey'
             }`}
           >
             <Link href="/contact">

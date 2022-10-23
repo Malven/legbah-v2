@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
 export const NavMenu = () => {
   const router = useRouter();
@@ -14,8 +14,8 @@ export const NavMenu = () => {
   return (
     <React.Fragment>
       <div
-        className={`text-4xl font-display hover:text-legbah-gold ${
-          router.pathname === '/news' ? 'text-legbah-gold' : ''
+        className={`text-2xl font-display hover:text-legbah-gold  ${
+          router.pathname === '/news' ? 'text-legbah-gold' : 'text-legbah-grey'
         }`}
       >
         <Link href="/news">
@@ -23,8 +23,10 @@ export const NavMenu = () => {
         </Link>
       </div>
       <div
-        className={`text-4xl font-display hover:text-legbah-gold ${
-          router.pathname === '/releases' ? 'text-legbah-gold' : ''
+        className={`text-2xl font-display hover:text-legbah-gold ${
+          router.pathname === '/releases'
+            ? 'text-legbah-gold'
+            : 'text-legbah-grey'
         }`}
       >
         <Link href="/releases">
@@ -32,8 +34,10 @@ export const NavMenu = () => {
         </Link>
       </div>
       <div
-        className={`relative text-4xl font-display hover:text-legbah-gold ${
-          routes.includes(router.pathname) ? 'text-legbah-gold' : ''
+        className={`relative text-2xl font-display hover:text-legbah-gold ${
+          routes.includes(router.pathname)
+            ? 'text-legbah-gold'
+            : 'text-legbah-grey'
         }`}
       >
         <button onClick={() => setSubMenuOpen(state => !state)}>Visuals</button>
@@ -83,8 +87,8 @@ export const NavMenu = () => {
         </div>
       </div>
       <div
-        className={`text-4xl font-display hover:text-legbah-gold ${
-          router.pathname === '/store' ? 'text-legbah-gold' : ''
+        className={`text-2xl font-display hover:text-legbah-gold ${
+          router.pathname === '/store' ? 'text-legbah-gold' : 'text-legbah-grey'
         }`}
       >
         <Link href="/store">
@@ -92,8 +96,10 @@ export const NavMenu = () => {
         </Link>
       </div>
       <div
-        className={`text-4xl font-display hover:text-legbah-gold ${
-          router.pathname === '/contact' ? 'text-legbah-gold' : ''
+        className={`text-2xl font-display hover:text-legbah-gold ${
+          router.pathname === '/contact'
+            ? 'text-legbah-gold'
+            : 'text-legbah-grey'
         }`}
       >
         <Link href="/contact">

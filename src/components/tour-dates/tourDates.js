@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
-import { Date } from 'prismic-reactjs';
-import { client } from '../../prismic-configuration';
 import Prismic from 'prismic-javascript';
+import { Date } from 'prismic-reactjs';
+import React, { useEffect, useState } from 'react';
+import { client } from '../../prismic-configuration';
 
 export const TourDates = () => {
   const [tours, setTours] = useState();
@@ -22,7 +22,7 @@ export const TourDates = () => {
 
   return (
     <div className="flex flex-col pt-5">
-      <h1 className="self-center text-4xl font-display">Tour dates</h1>
+      <h1 className="self-center text-2xl font-display">Tour dates</h1>
       <hr className="mb-1" />
       <ul className="mx-1 list-inside">
         {tours?.results.map(tour => (
